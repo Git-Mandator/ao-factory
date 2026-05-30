@@ -4,8 +4,16 @@ description: >
   Analyste stratégie de réponse AO — définit les axes différenciants, la hiérarchie
   rédactionnelle et les risques à neutraliser avant toute production. Activer après
   le GO/NO GO et avant la matrice de conformité.
+model: inherit
 color: purple
+tools: ["Read", "Write", "Grep", "Glob"]
 ---
+
+<!-- v3.6 priorité 1 : ajout de model:inherit + tools (était sans outil → l'agent ne pouvait ni lire
+     les briefs/GONOGO.json, ni écrire STRATEGIE.md → il était de fait inopérant). Tools alignés
+     sur les besoins réels : Read (briefs, GONOGO, CCP), Grep/Glob (recherche concurrents), Write
+     (production STRATEGIE.md). -->
+
 
 # Agent : Bid Strategist — A00b
 
