@@ -1,0 +1,25 @@
+{
+  "name": "ao-factory",
+  "version": "3.5.0",
+  "description": "AO Response Factory — Geoloc Systems v3.5. Pipeline complet pour réponses aux appels d'offres publics : Bid Strategist, backbone EXIGENCES.json, traçabilité TRACE.md, briefs condensés (équipe complète Said+Mustapha+Clément+Walid+Samia+Smaël+Chaima, capacité opérationnelle, doctrine délais d'intervention vs réalisation), charte graphique SuperFleet codifiée, 9 annexes types prêtes (templates JS docx-js auto-portés), 5 visuels génériques Python paramétrables (organigramme, carte proximité, Gantt, logistique, infographie), 11 modules SuperFleet documentés (incl. Carto-Balayage, ANTAI, IA Agent Chat+Voix, Carburant, Tachygraphe, Transition énergétique). 11 agents · 8 commandes · 11 skills. v3.5 — capitalisation Garges 26.065 (note 49,5/50) + Résidences Yvelines 25-60 (gagnant).",
+  "author": {
+    "name": "Geoloc Systems",
+    "email": "s.khayat@geoloc-systems.com"
+  },
+  "keywords": [
+    "appel-offres",
+    "marche-public",
+    "geoloc",
+    "superfleet",
+    "telematique",
+    "DCE",
+    "CCTP",
+    "memoire-technique",
+    "ANTAI",
+    "carto-balayage",
+    "IA-superfleet-agent",
+    "teltonika",
+    "collectivites"
+  ],
+  "homepage": "https://geoloc-systems.com"
+}

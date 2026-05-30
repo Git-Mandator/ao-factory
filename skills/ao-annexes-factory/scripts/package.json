@@ -1,0 +1,14 @@
+{
+  "name": "ao-annexes-factory",
+  "version": "3.5.0",
+  "description": "Génération des 9 annexes types AO Geoloc Systems",
+  "scripts": {
+    "all": "node gen_all_annexes.js",
+    "01-04": "node gen_annexes_01_02_03.js && node gen_annexes_04_05_06_07.js",
+    "08": "node gen_annexe_08_illustrations.js",
+    "09": "node gen_annexe_09_lecteur_mifare.js"
+  },
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}

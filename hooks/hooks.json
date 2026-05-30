@@ -1,0 +1,38 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "Tu travailles dans le contexte AO Response Factory de Geoloc Systems. Rappel des règles absolues qui s'appliquent à toute ta session :\n\n1. INTERDIT : écrire 'FleetWatcher' → toujours 'SuperFleet'\n2. INTERDIT : inventer une fonctionnalité SuperFleet → vérifier dans knowledge/references/superfleet-catalogue-fonctionnel.md\n3. INTERDIT : inventer un chiffre (CA, délai, taux) → vérifier dans knowledge/company/profil-geoloc-systems.md\n4. INTERDIT : inventer une référence client → uniquement ENEDIS, ADANEV (1500 véh.), Transalys Service, Commune de Martigues\n5. INTERDIT : inventer une certification → distinguer certifications hébergeurs (AWS/OVH) vs Geoloc Systems\n6. INTERDIT : promettre CAN-BUS sans condition de compatibilité véhicule\n7. INTERDIT : utiliser l'ancienne palette (#1F3864 / #2E75B6 / #D6E4F7) — palette officielle : Primary #1565C0, Brand #4285F4, Muted #F1F5F9\n8. Doute sur une information → marquer A_CONFIRMER et remonter à Said KHAYAT\n\nCommandes disponibles : /ao-new /ao-dce-check /ao-gonogo /ao-matrice /ao-memoire /ao-qa /ao-export /ao-status\n\nCharte graphique Geoloc Systems (design system SuperFleet v1.0) :\n- Police : Calibri (fallback Arial) — JAMAIS Times New Roman\n- Couleur primaire : #1565C0 (titres, en-têtes, bordures)\n- Accent : #4285F4 (icônes, éléments actifs)\n- Fond : #FFFFFF — texte : #1F2937\n- Tableaux : en-tête #1565C0 texte blanc | lignes alternées #F1F5F9 / #FFFFFF\n- Si l'AO n'impose pas de cadre de réponse → utiliser la charte SuperFleet via skills/geoloc-brand/SKILL.md",
+          "timeout": 10
+        }
+      ]
+    }
+  ],
+  "PreToolUse": [
+    {
+      "matcher": "Write|Edit",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "Avant d'écrire ou modifier ce fichier, vérifie impérativement :\n1. Le contenu à écrire contient-il 'FleetWatcher' ? Si oui → BLOQUER et remplacer par 'SuperFleet'\n2. Le contenu contient-il une fonctionnalité SuperFleet non documentée dans la base documentaire ? Si oui → BLOQUER et marquer A_CONFIRMER\n3. Le contenu contient-il un chiffre de CA, effectif ou référence client non listée dans profil-geoloc-systems.md ? Si oui → BLOQUER\n4. Le contenu contient-il une certification ISO/SOC2/HDS attribuée directement à Geoloc Systems (et non à ses hébergeurs) ? Si oui → BLOQUER et reformuler\n5. Le contenu utilise-t-il des couleurs de l'ancienne charte (#1F3864, #2E75B6, #D6E4F7) ? Si oui → AVERTISSEMENT et remplacer par la palette officielle (#1565C0, #4285F4, #F1F5F9)\n\nSi tous les contrôles sont OK → approuver l'écriture.",
+          "timeout": 20
+        }
+      ]
+    }
+  ],
+  "UserPromptSubmit": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "prompt",
+          "prompt": "Analyse le message de l'utilisateur. S'il contient des mots comme : appel d'offres, AO, DCE, CCTP, RC, marché public, candidature, BOAMP, MAPA, mémoire technique, répond AVANT tout autre traitement : 'Je détecte un contexte appel d'offres. Pour lancer la factory complète, utilisez /ao-new. Pour un inventaire rapide du DCE : /ao-dce-check. Pour une analyse GO/NO GO : /ao-gonogo.' S'il contient des mots comme : charte graphique, design, couleurs, mise en page, template Word, présentation, branding, → suggérer le skill geoloc-brand. Sinon, ne rien ajouter et traiter le message normalement.",
+          "timeout": 15
+        }
+      ]
+    }
+  ]
+}
