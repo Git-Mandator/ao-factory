@@ -1,5 +1,6 @@
 ---
 name: ao-annexes-factory
+version: "3.6.0"
 description: Génère les 9 annexes types d'un dossier de remise AO Geoloc Systems — tableau de bord projet, CR COPIL, CR COTECH, PV vérification, suivi installations, boîtier Teltonika, plan formation, illustrations SuperFleet, lecteur MIFARE. Utiliser dès qu'un dossier d'annexes doit être produit en complément du mémoire technique. Déclencher pour "produire annexes AO", "générer tableau de bord projet", "modèle CR COPIL", "PV pose contradictoire", "suivi installations", "fiche boîtier Teltonika", "plan formation Admin/Gest/Terrain", "illustrations SuperFleet", "lecteur badges MIFARE".
 ---
 

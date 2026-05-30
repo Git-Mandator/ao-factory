@@ -1,6 +1,6 @@
 ---
 name: no-invention-guard
-version: "1.0.0"
+version: "3.6.0"
 domain: AO_FACTORY
 language: fr
 description: >

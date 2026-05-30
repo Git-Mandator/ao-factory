@@ -1,6 +1,6 @@
 ---
 name: geoloc-brand
-version: "1.0.0"
+version: "3.6.0"
 domain: GEOLOC_SYSTEMS_CORE
 language: fr
 description: >

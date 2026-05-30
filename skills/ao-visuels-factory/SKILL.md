@@ -1,5 +1,6 @@
 ---
 name: ao-visuels-factory
+version: "3.6.0"
 description: Génère les 5 visuels génériques d'un mémoire technique AO Geoloc Systems — organigramme projet, mini-carte siège ↔ client, diagramme de Gantt 6 semaines, schéma logistique stock, infographie résumé page de garde. Utiliser dès qu'un mémoire technique AO est à produire et qu'il faut illustrer la proposition par des visuels professionnels et personnalisés au contexte du donneur d'ordres. Déclencher pour "générer organigramme projet AO", "produire carte proximité siège-client", "Gantt déploiement 6 semaines", "schéma logistique stock", "infographie page de garde mémoire AO".
 ---
 

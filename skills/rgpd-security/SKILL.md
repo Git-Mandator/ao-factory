@@ -1,6 +1,6 @@
 ---
 name: rgpd-security
-version: "1.2.0"
+version: "3.6.0"
 domain: AO_FACTORY
 language: fr
 description: >

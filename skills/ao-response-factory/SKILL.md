@@ -1,6 +1,6 @@
 ---
 name: ao-response-factory
-version: "1.2.0"
+version: "3.6.0"
 domain: AO_FACTORY
 language: fr
 role: orchestrateur

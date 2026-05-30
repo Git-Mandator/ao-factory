@@ -1,6 +1,6 @@
 ---
 name: bid-manager
-version: "1.7.0"
+version: "3.6.0"
 domain: AO_FACTORY
 language: fr
 description: >

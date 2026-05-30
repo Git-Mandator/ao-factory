@@ -1,6 +1,6 @@
 ---
 name: cctp-analyzer
-version: "1.1.0"
+version: "3.6.0"
 domain: AO_FACTORY
 language: fr
 description: >
