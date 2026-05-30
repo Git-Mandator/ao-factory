@@ -1,5 +1,5 @@
 ---
-name: bid-strategist
+name: a00b-bid-strategist
 description: >
   Analyste stratégie de réponse AO — définit les axes différenciants, la hiérarchie
   rédactionnelle et les risques à neutraliser avant toute production. Activer après

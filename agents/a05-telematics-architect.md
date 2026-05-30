@@ -52,12 +52,11 @@ le bon boîtier pour chaque usage, en argumentant chaque choix avec des données
 
 ### Choix de boîtier par usage
 
+<!-- v3.6 : modèles ACTIFS uniquement (FMC640/FMM640/FTC640 = EOL 2023, retirés) -->
 | Usage | Boîtier recommandé | Justification |
 |-------|-------------------|---------------|
-| Voiture légère standard | FTC640 | Compact, OBD, 4G Cat M1 |
-| VUL / utilitaire | FMC640 | CAN optionnel, robuste |
-| Poids lourd / tachygraphe | FMC650 | Smart Tacho numérique |
-| Équipement / engin | FMM640 | IP67, batterie de secours |
+| Voiture légère / VUL / utilitaire | **FMC920** | Compact, OBD2 ou faisceau, 4G Cat 1, IP41 habitacle |
+| Poids lourd / engin / tachygraphe | **FMC650** | Smart Tacho numérique, CAN-BUS J1939/FMS, IP67, Dead Reckoning |
 
 ## Règle stricte
 
