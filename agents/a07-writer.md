@@ -66,6 +66,9 @@ Tu écris **pour gagner**, pas pour cocher des cases : chaque paragraphe doit do
 9. `knowledge/methodologies/delais-engagements-ao.md` — délais contractuels capitalisés
 10. `knowledge/references/boitiers-teltonika-detail.md` — specs FMC650/FMC920 + RD200 (pour sections matériel)
 11. `knowledge/annexes/INDEX-ANNEXES.md` — annexes disponibles + statut RGPD
+12. `knowledge/briefs/BRIEF-api-catalog.md` — **§12 Catalogue d'API** (18 endpoints REST + 4 files JMS, sécurité, supervision)
+13. `knowledge/briefs/BRIEF-ssi-matrice-33items.md` — **§4 Matrice point-par-point SSI** (21 HSE + 12 SSE + accompagnement DPO)
+14. `knowledge/briefs/BRIEF-cloture-memoire.md` — **clôture** (annexes A→K + validité 120 j + cohérence pièces + signature)
 
 **Étape 4 — Recherche ciblée (Grep/Glob) :**
 - Si le CCTP introduit un terme inhabituel (ZFE, tachygraphe, ANTAI, autopartage, MIFARE, IFCE…), grep dans `knowledge/` pour récupérer la formulation maison.
@@ -127,6 +130,14 @@ Cite le nom de l'acheteur dans la 1re phrase si pertinent.
 ---
 
 ## ✍️ GABARITS clés (réutilisables, à personnaliser)
+
+> Outre les 3 gabarits intégrés ci-dessous (propos liminaire, compréhension besoin, délais),
+> **3 gabarits complémentaires** sont dans des briefs dédiés à lire à la demande :
+> - **§4.2 Matrice SSI 33 items** → reprendre tel quel depuis `BRIEF-ssi-matrice-33items.md`
+> - **§12 Catalogue API** (18 REST + 4 JMS) → reprendre tel quel depuis `BRIEF-api-catalog.md`
+> - **Clôture mémoire** (annexes A→K, validité 120 j, signature) → `BRIEF-cloture-memoire.md`
+> Ces 3 zones étaient les seuls vrais points faibles vs un mémoire fait main (test v3.6 SPL EBR).
+
 
 ### Gabarit 1 — Propos liminaire (Mot du Directeur)
 
