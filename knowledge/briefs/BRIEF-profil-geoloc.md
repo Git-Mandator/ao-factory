@@ -1,7 +1,7 @@
 # BRIEF — Profil Geoloc Systems
 ## Chargement rapide — AO Factory v3.5
 
-> Source complète : `knowledge/company/profil-geoloc-systems.md`
+> Source complète : `knowledge/briefs/BRIEF-profil-geoloc.md`
 > Ce brief concentre les informations les plus mobilisées dans les réponses AO.
 > **Version 3.5 — mai 2026** — capitalisation des AO 25-60 Résidences Yvelines et 26.065 Garges-lès-Gonesse.
 

@@ -18,8 +18,8 @@ Génère la matrice de conformité complète pour : $ARGUMENTS
 5. `strategie/STRATEGIE.md` — angle retenu, différenciateurs
 
 **Sources complètes (si besoin de détail):**
-6. `knowledge/references/superfleet-catalogue-fonctionnel.md`
-7. `knowledge/references/superfleet-fiche-technique-securite-conformite.md`
+6. `knowledge/briefs/BRIEF-superfleet-fonctionnel.md`
+7. `knowledge/briefs/BRIEF-securite-rgpd.md`
 8. `knowledge/annexes/INDEX-ANNEXES.md`
 
 ## Pour chaque exigence REQ-XXX

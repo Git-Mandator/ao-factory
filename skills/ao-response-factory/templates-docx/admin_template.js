@@ -8,7 +8,7 @@ const fs = require('fs');
 const OUT = '/sessions/modest-laughing-knuth/mnt/Appels-Offres/En-cours/2026-02-24_SIRTOM/REPONSE/remise/ADMIN_CHECKLIST_SIRTOM.docx';
 
 const C = {
-  BLEU_FONCE: "1F3864", BLEU_MED: "2E75B6", BLEU_LIGHT: "D6E4F7", BLEU_ALT: "EBF3FB",
+  BLEU_FONCE: "1565C0", BLEU_MED: "4285F4", BLEU_LIGHT: "F1F5F9", BLEU_ALT: "E2E8F0",
   VERT: "375623", VERT_LIGHT: "E2EFDA",
   ORANGE: "C55A11", ORANGE_LIGHT: "FCE4D6",
   ROUGE: "C00000", ROUGE_LIGHT: "FFCCCC",
@@ -162,7 +162,7 @@ const juridique = [
 // Candidature - Financier
 const financier = [
   { piece: "DC2 — Déclaration financière (capacité économique)", statut: "A GENERER", source: "formulaires.modernisation.gouv.fr", action: "Renseigner CA 2021 (1 041 378 €), 2022 (1 038 515 €), 2023 (1 006 398 €)" },
-  { piece: "Attestation RC AXA", statut: "DISPONIBLE", source: "knowledge/annexes-types/09-attestation-rc-axa-2026.pdf", action: "Valide 08/02/2026 → 01/01/2027 ✓" },
+  { piece: "Attestation RC AXA", statut: "DISPONIBLE", source: "knowledge/annexes/09-attestation-rc-axa-2026.pdf", action: "Valide 08/02/2026 → 01/01/2027 ✓" },
   { piece: "RIB (Relevé d'Identité Bancaire)", statut: "A JOINDRE", source: "Banque Geoloc Systems", action: "Joindre RIB SARL Geoloc Systems" },
 ];
 

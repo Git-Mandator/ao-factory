@@ -11,9 +11,9 @@ description: >
   Déclencher dès qu'un CCTP, RC, DCE, cahier des charges ou document d'appel d'offres
   est fourni pour analyse, ou pour une décision de candidature.
 knowledge_base:
-  - 20_AO_FACTORY/knowledge/references/superfleet-catalogue-fonctionnel.md
-  - 20_AO_FACTORY/knowledge/references/superfleet-fiche-technique-securite-conformite.md
-  - 20_AO_FACTORY/knowledge/annexes-types/INDEX-ANNEXES.md
+  - knowledge/briefs/BRIEF-superfleet-fonctionnel.md
+  - knowledge/briefs/BRIEF-securite-rgpd.md
+  - knowledge/annexes/INDEX-ANNEXES.md
 sop_reference: SOP_AO_RESPONSE_FACTORY.md
 sop_phases: [1, 2]
 ---
@@ -58,16 +58,16 @@ Tu décortiques le CCTP pour produire une cartographie exhaustive des exigences.
 
 ### Base documentaire à consulter
 
-Se référer à `knowledge/references/superfleet-catalogue-fonctionnel.md` pour :
+Se référer à `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` pour :
 - Vérifier la couverture fonctionnelle de chaque exigence CCTP
 - Identifier les modules concernés (Géolocalisation, Rapports, Flotte, Conducteurs, Alertes, Administration)
 - Extraire les phrases types et chiffres clés (200 users, <1s MQTT, 15+ colonnes)
 
-Se référer à `knowledge/references/superfleet-fiche-technique-securite-conformite.md` pour :
+Se référer à `knowledge/briefs/BRIEF-securite-rgpd.md` pour :
 - Vérifier la couverture des exigences de sécurité, RGPD, hébergement, SLA
 - Confirmer les certifications (ISO 27001, SOC 2, HDS) pour les critères "sécurité"
 
-Se référer à `knowledge/annexes-types/INDEX-ANNEXES.md` pour :
+Se référer à `knowledge/annexes/INDEX-ANNEXES.md` pour :
 - Identifier quelle annexe apporte la preuve de chaque exigence couverte
 
 ### Règles impératives

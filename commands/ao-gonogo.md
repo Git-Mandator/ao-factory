@@ -10,8 +10,8 @@ Lance l'analyse GO / NO GO pour le marché : $ARGUMENTS
 
 Lire dans l'ordre :
 1. `synthese/SYNTH_AO.md` (si disponible) ou les documents DCE bruts
-2. `knowledge/references/superfleet-catalogue-fonctionnel.md` — pour évaluer le fit produit
-3. `knowledge/company/profil-geoloc-systems.md` — pour évaluer la capacité delivery
+2. `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` — pour évaluer le fit produit
+3. `knowledge/briefs/BRIEF-profil-geoloc.md` — pour évaluer la capacité delivery
 
 ## Scoring sur 100 points (6 axes)
 

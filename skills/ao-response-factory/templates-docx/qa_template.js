@@ -8,7 +8,7 @@ const fs = require('fs');
 const OUT = '/sessions/modest-laughing-knuth/mnt/Appels-Offres/En-cours/2026-02-24_SIRTOM/REPONSE/remise/QA_CHECKLIST_SIRTOM.docx';
 
 const C = {
-  BLEU_FONCE: "1F3864", BLEU_MED: "2E75B6", BLEU_LIGHT: "D6E4F7", BLEU_ALT: "EBF3FB",
+  BLEU_FONCE: "1565C0", BLEU_MED: "4285F4", BLEU_LIGHT: "F1F5F9", BLEU_ALT: "E2E8F0",
   VERT: "375623", VERT_LIGHT: "E2EFDA",
   ORANGE: "C55A11", ORANGE_LIGHT: "FCE4D6",
   ROUGE: "C00000", ROUGE_LIGHT: "FFCCCC",

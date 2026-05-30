@@ -135,7 +135,7 @@ knowledge/annexes/
 
 Police : **Calibri** (fallback Arial) — JAMAIS Times New Roman.
 
-> ⚠️ Ancienne palette (`#1F3864`, `#2E75B6`, `#D6E4F7`) obsolète depuis fév. 2026.
+> ⚠️ Ancienne palette (`#1565C0`, `#4285F4`, `#F1F5F9`) obsolète depuis fév. 2026.
 
 ---
 

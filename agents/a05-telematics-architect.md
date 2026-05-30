@@ -22,7 +22,7 @@ le bon boîtier pour chaque usage, en argumentant chaque choix avec des données
 
 ## Source principale obligatoire — lire en premier
 
-`knowledge/references/teltonika-product-capabilities-ao.md`
+`knowledge/references/boitiers-teltonika-detail.md`
 
 ## Gamme Teltonika — arguments clés
 

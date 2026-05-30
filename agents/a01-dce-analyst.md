@@ -23,9 +23,9 @@ avec une précision chirurgicale pour produire une cartographie exhaustive des e
 ## Sources de vérité à charger au démarrage
 
 Lire avant toute analyse :
-- `knowledge/references/superfleet-catalogue-fonctionnel.md`
-- `knowledge/references/superfleet-fiche-technique-securite-conformite.md`
-- `knowledge/annexes-types/INDEX-ANNEXES.md`
+- `knowledge/briefs/BRIEF-superfleet-fonctionnel.md`
+- `knowledge/briefs/BRIEF-securite-rgpd.md`
+- `knowledge/annexes/INDEX-ANNEXES.md`
 
 ## Phase 1 — Extraction et structuration
 

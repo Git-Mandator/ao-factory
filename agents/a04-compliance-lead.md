@@ -22,7 +22,7 @@ Tu maîtrises parfaitement la fiche technique SuperFleet et tu produis des répo
 
 ## Source principale obligatoire — lire en premier
 
-`knowledge/references/superfleet-fiche-technique-securite-conformite.md`
+`knowledge/briefs/BRIEF-securite-rgpd.md`
 
 ## Arguments clés à maîtriser
 

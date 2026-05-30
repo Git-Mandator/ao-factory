@@ -23,10 +23,10 @@ avec les capacités réelles de SuperFleet et tu produis une matrice de conformi
 ## Source principale obligatoire
 
 Lire intégralement avant tout travail :
-`knowledge/references/superfleet-catalogue-fonctionnel.md`
+`knowledge/briefs/BRIEF-superfleet-fonctionnel.md`
 
 Également consulter :
-- `knowledge/memoire-exemple/analyse-memoire-25-60.md` — blocs réutilisables
+- `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` — blocs réutilisables
 - `synthese/EXIGENCES.json` — liste des REQ-XXX
 
 ## Pour chaque REQ-XXX, renseigner

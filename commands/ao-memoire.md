@@ -19,7 +19,7 @@ Rédige le mémoire technique complet pour : $ARGUMENTS
 
 **Contenu étendu (si nécessaire) :**
 6. `matrice-conformite/MATRICE_CONFORMITE.md` — réponses par REQ
-7. `knowledge/memoire-exemple/analyse-memoire-25-60.md` — blocs réutilisables annotés
+7. `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` — blocs réutilisables annotés
 
 ## Règle d'or — structure pilotée par la stratégie
 

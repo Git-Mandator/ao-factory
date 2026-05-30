@@ -23,11 +23,11 @@ Un claim non traçable = BLOQUANT. Mieux vaut `A_CONFIRMER` qu'une invention.
 
 | Source | Contenu autorisé |
 |--------|-----------------|
-| `knowledge/company/profil-geoloc-systems.md` | CA, effectifs, références clients, délais, SLA terrain |
-| `knowledge/references/superfleet-catalogue-fonctionnel.md` | Toutes les fonctionnalités SuperFleet |
-| `knowledge/references/superfleet-fiche-technique-securite-conformite.md` | Sécurité, RGPD, SLA SaaS, certifications hébergeurs |
-| `knowledge/references/teltonika-product-capabilities-ao.md` | Boîtiers GPS, protocoles, caractéristiques hardware |
-| `knowledge/memoire-exemple/analyse-memoire-25-60.md` | Blocs validés réutilisables |
+| `knowledge/briefs/BRIEF-profil-geoloc.md` | CA, effectifs, références clients, délais, SLA terrain |
+| `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` | Toutes les fonctionnalités SuperFleet |
+| `knowledge/briefs/BRIEF-securite-rgpd.md` | Sécurité, RGPD, SLA SaaS, certifications hébergeurs |
+| `knowledge/references/boitiers-teltonika-detail.md` | Boîtiers GPS, protocoles, caractéristiques hardware |
+| `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` | Blocs validés réutilisables |
 
 ## Catégories de claims à vérifier
 

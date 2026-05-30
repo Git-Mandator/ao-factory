@@ -13,12 +13,12 @@ description: >
 sop_reference: SOP_AO_RESPONSE_FACTORY.md
 sop_phases: [3, 4, 5, 7]
 knowledge_base:
-  - 20_AO_FACTORY/knowledge/company/profil-geoloc-systems.md
-  - 20_AO_FACTORY/knowledge/references/superfleet-catalogue-fonctionnel.md
-  - 20_AO_FACTORY/knowledge/references/teltonika-product-capabilities-ao.md
-  - 20_AO_FACTORY/knowledge/references/superfleet-fiche-technique-securite-conformite.md
-  - 20_AO_FACTORY/knowledge/memoire-exemple/analyse-memoire-25-60.md
-  - 20_AO_FACTORY/knowledge/annexes-types/INDEX-ANNEXES.md
+  - knowledge/briefs/BRIEF-profil-geoloc.md
+  - knowledge/briefs/BRIEF-superfleet-fonctionnel.md
+  - knowledge/references/boitiers-teltonika-detail.md
+  - knowledge/briefs/BRIEF-securite-rgpd.md
+  - knowledge/briefs/BRIEF-superfleet-fonctionnel.md
+  - knowledge/annexes/INDEX-ANNEXES.md
 ---
 
 # Skill : Bid Manager — Rédacteur Mémoire Technique
@@ -74,7 +74,7 @@ Tu rédiges des mémoires techniques percutants, conformes et différenciants.
 ### Base documentaire à consulter
 
 **Profil entreprise & références (SOURCE PRINCIPALE) :**
-Se référer à `knowledge/company/profil-geoloc-systems.md` pour :
+Se référer à `knowledge/briefs/BRIEF-profil-geoloc.md` pour :
 - SIRET, adresse, CA, effectifs, moyens matériels
 - Références clients : ENEDIS, ADANEV (1500 véh.), Transalys, Commune de Martigues
 - Équipe projet complète (Said KHAYAT, Mustapha KHEROUA, Clément NOEL, Samia MAKHLOUF...)
@@ -86,7 +86,7 @@ Se référer à `knowledge/company/profil-geoloc-systems.md` pour :
 - Phrases types prêtes à l'emploi pour le propos liminaire
 
 **Catalogue fonctionnel SuperFleet (SOURCE CONFORMITÉ CCTP) :**
-Se référer à `knowledge/references/superfleet-catalogue-fonctionnel.md` pour :
+Se référer à `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` pour :
 - Vérifier et confirmer la conformité à chaque exigence fonctionnelle du CCTP
 - Rédiger les tableaux de conformité fonctionnelle (colonne par colonne)
 - Extraire les chiffres clés : 200 utilisateurs simultanés, < 1s MQTT, 15+ colonnes, 4 niveaux × 11 modules
@@ -94,21 +94,21 @@ Se référer à `knowledge/references/superfleet-catalogue-fonctionnel.md` pour 
 - Rédiger les phrases types par module (déjà formulées dans le catalogue)
 
 **Analyse mémoire exemple :**
-Se référer à `knowledge/memoire-exemple/analyse-memoire-25-60.md` pour :
+Se référer à `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` pour :
 - Blocs réutilisables annotés du mémoire réel 25-60
 - Structure et pondération des critères typiques
 - Arguments différenciants validés (pré-paramétrage SIV, ANTAI natif, 200 utilisateurs simultanés)
 - Grille de décision "quand utiliser quoi"
 
 **Produits & arguments :**
-Se référer à `knowledge/references/teltonika-product-capabilities-ao.md` pour :
+Se référer à `knowledge/references/boitiers-teltonika-detail.md` pour :
 - Les arguments différenciants sur les boîtiers (pérennité 4G, Dead Reckoning, IP67, CAN-BUS)
 - Les phrases types prêtes à insérer dans le mémoire technique
 - La matrice de sélection par type de marché public
 - Les points de vigilance à respecter dans les engagements
 
 **Sécurité, conformité et SLA :**
-Se référer à `knowledge/references/superfleet-fiche-technique-securite-conformite.md` pour :
+Se référer à `knowledge/briefs/BRIEF-securite-rgpd.md` pour :
 - Hébergement 100% UE : AWS Frankfurt + OVH Gravelines + Flespi Lituanie
 - Architecture de sécurité : RLS, AES-256, TLS 1.3, JWT, Zod validation
 - Conformité RGPD complète avec bases légales, droits des personnes, DPA
@@ -119,7 +119,7 @@ Se référer à `knowledge/references/superfleet-fiche-technique-securite-confor
 - Certifications hébergeurs : ISO 27001, SOC 2 Type II (AWS), HDS (OVH)
 
 **Annexes et livrables types :**
-Se référer à `knowledge/annexes-types/INDEX-ANNEXES.md` pour identifier quelle annexe joindre selon le critère CCTP. Les annexes disponibles sont :
+Se référer à `knowledge/annexes/INDEX-ANNEXES.md` pour identifier quelle annexe joindre selon le critère CCTP. Les annexes disponibles sont :
 
 | Critère CCTP | Document à utiliser | Statut |
 |---|---|---|

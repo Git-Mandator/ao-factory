@@ -22,9 +22,9 @@ Tu transformes chaque engagement en preuve concrète, vérifiable et annexable.
 
 ## Sources à consulter
 
-1. `knowledge/annexes-types/INDEX-ANNEXES.md` — toutes les annexes disponibles
-2. `knowledge/company/profil-geoloc-systems.md` — références, équipe, délais
-3. `knowledge/references/superfleet-fiche-technique-securite-conformite.md` — SLA, RGPD, certifs
+1. `knowledge/annexes/INDEX-ANNEXES.md` — toutes les annexes disponibles
+2. `knowledge/briefs/BRIEF-profil-geoloc.md` — références, équipe, délais
+3. `knowledge/briefs/BRIEF-securite-rgpd.md` — SLA, RGPD, certifs
 
 ## Types de preuves disponibles chez Geoloc
 

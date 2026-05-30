@@ -30,7 +30,7 @@ Lire dans cet ordre :
 | Pièce administrative bloquante manquante | RC AXA, DC1, DC2 selon exigences RC |
 | Engagement impossible à tenir | Délais irréalistes, SLA au-delà des capacités documentées |
 | REQ MUST avec statut NON sans alternative | Chercher dans EXIGENCES.json les MUST+NON |
-| Ancienne palette couleurs (#1F3864) | grep dans tout fichier de présentation |
+| Ancienne palette couleurs (#1565C0) | grep dans tout fichier de présentation |
 
 ### 🟡 Contrôles importants (signaler sans bloquer)
 

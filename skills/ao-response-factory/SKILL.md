@@ -19,12 +19,12 @@ output_formats:
   intermediate: md+json
   pricing: xlsx
 knowledge_base:
-  - 20_AO_FACTORY/knowledge/company/profil-geoloc-systems.md
-  - 20_AO_FACTORY/knowledge/references/superfleet-catalogue-fonctionnel.md
-  - 20_AO_FACTORY/knowledge/references/superfleet-fiche-technique-securite-conformite.md
-  - 20_AO_FACTORY/knowledge/references/teltonika-product-capabilities-ao.md
-  - 20_AO_FACTORY/knowledge/memoire-exemple/analyse-memoire-25-60.md
-  - 20_AO_FACTORY/knowledge/annexes-types/INDEX-ANNEXES.md
+  - knowledge/briefs/BRIEF-profil-geoloc.md
+  - knowledge/briefs/BRIEF-superfleet-fonctionnel.md
+  - knowledge/briefs/BRIEF-securite-rgpd.md
+  - knowledge/references/boitiers-teltonika-detail.md
+  - knowledge/briefs/BRIEF-superfleet-fonctionnel.md
+  - knowledge/annexes/INDEX-ANNEXES.md
 delegates_to:
   - cctp-analyzer        # Phases 1–2 → phases/phase1-2-analyse-gonogo.md
   - bid-manager          # Phases 3–5, 7 → phases/phase3-matrice.md + phase4-redaction.md

@@ -10,7 +10,7 @@ description: >
   documenter SLA et PCA/PRA. Déclencher pour toute question RGPD, sécurité, hébergement données,
   certification ISO/SOC2, protection données personnelles ou souveraineté numérique dans un AO.
 knowledge_base:
-  - 20_AO_FACTORY/knowledge/references/superfleet-fiche-technique-securite-conformite.md
+  - knowledge/briefs/BRIEF-securite-rgpd.md
 ---
 
 # Skill : Expert RGPD & Sécurité — Marchés Publics

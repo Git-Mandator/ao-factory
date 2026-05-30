@@ -1,7 +1,7 @@
 # BRIEF — Sécurité, RGPD & Hébergement SuperFleet
 ## Chargement rapide — AO Factory v3.0
 
-> Source complète : `knowledge/references/superfleet-fiche-technique-securite-conformite.md`
+> Source complète : `knowledge/briefs/BRIEF-securite-rgpd.md`
 
 ---
 

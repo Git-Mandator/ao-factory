@@ -49,7 +49,7 @@ Appliquer impérativement la charte graphique **geoloc-brand v1.0** (skill `geol
 - En-tête : "[Nom marché] — [Référence]  |  Geoloc Systems"
 - Pied de page : "CONFIDENTIEL — [Date] — Page X"
 
-> ❌ INTERDIT : couleurs obsolètes `1F3864`, `2E75B6`, `D6E4F7`, `EBF3FB` — palette abandonnée.
+> ❌ INTERDIT : couleurs obsolètes `1565C0`, `4285F4`, `F1F5F9`, `E2E8F0` — palette abandonnée.
 
 ## Étape 3 — Copier DQE et annexes
 

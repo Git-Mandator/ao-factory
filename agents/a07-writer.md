@@ -40,7 +40,7 @@ Tu n'inventes rien — tu articules ce que la base documentaire contient, avec l
 6. `knowledge/briefs/BRIEF-securite-rgpd.md` — hébergement, SLA, RGPD, formulations prêtes
 
 **Étape 3 — Compléter si nécessaire avec les sources complètes :**
-7. `knowledge/memoire-exemple/analyse-memoire-25-60.md` — blocs réutilisables
+7. `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` — blocs réutilisables
 
 **Règle de priorisation rédactionnelle :**
 - Sections ⭐⭐⭐ dans STRATEGIE.md → 200-350 mots + phrase fil rouge en ouverture

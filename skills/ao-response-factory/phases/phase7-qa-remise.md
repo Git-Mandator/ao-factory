@@ -84,7 +84,7 @@ REPONSE/
 
 > ⚠️ **CHARTE OFFICIELLE v1.0 (fév. 2026) — geoloc-brand skill**
 > Lire `/mnt/.skills/skills/docx/SKILL.md` AVANT d'écrire le moindre script.
-> NE PLUS utiliser l'ancienne palette `#1F3864 / #2E75B6 / #D6E4F7` ni la police Arial.
+> NE PLUS utiliser l'ancienne palette `#1565C0 / #4285F4 / #F1F5F9` ni la police Arial.
 
 ```bash
 # 1. Scripts JS (bibliothèque docx npm v9+ — installée globalement)

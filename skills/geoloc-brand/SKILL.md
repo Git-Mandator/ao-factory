@@ -203,12 +203,12 @@ Quand invoqué pour vérifier un document existant, produire :
 ## ⚠️ Note sur les anciennes couleurs AO
 
 > Des documents antérieurs (ao-response-factory phase 7) mentionnent des couleurs de l'ancienne charte :
-> `BLEU_FONCE #1F3864 | BLEU_MED #2E75B6 | BLEU_LIGHT #D6E4F7`
+> `BLEU_FONCE #1565C0 | BLEU_MED #4285F4 | BLEU_LIGHT #F1F5F9`
 >
 > Ces valeurs sont **obsolètes**. La charte officielle (design system v1.0, fév. 2026) remplace ces codes.
 > Utiliser désormais : **Primary `#1565C0`** — Brand ref `#4285F4` — Muted `#F1F5F9`
 >
-> → Mettre à jour `20_AO_FACTORY/skills/ao-response-factory/phases/phase7-qa-remise.md` lors
+> → Mettre à jour `skills/ao-response-factory/phases/phase7-qa-remise.md` lors
 >   de la prochaine révision de la phase 7.
 
 ---

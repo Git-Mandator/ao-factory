@@ -1,7 +1,7 @@
 # BRIEF — Catalogue Fonctionnel SuperFleet
 ## Chargement rapide — AO Factory v3.5
 
-> Source complète : `knowledge/references/superfleet-catalogue-fonctionnel.md`
+> Source complète : `knowledge/briefs/BRIEF-superfleet-fonctionnel.md`
 > **Version 3.5 — mai 2026** — capitalisation Garges-lès-Gonesse (26.065) et Résidences Yvelines (25-60).
 
 ---

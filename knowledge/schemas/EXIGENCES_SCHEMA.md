@@ -68,7 +68,7 @@
       "statut": "OK | PARTIEL | NON | A_CONFIRMER",
       "couverture_pct": 100,
       "reponse_superfleet": "SuperFleet assure un rafraîchissement en temps réel toutes les 10 secondes (paramétrable) via boîtiers Teltonika FMC640/FMC650.",
-      "source_knowledge": "knowledge/references/superfleet-catalogue-fonctionnel.md#geolocalisation",
+      "source_knowledge": "knowledge/briefs/BRIEF-superfleet-fonctionnel.md#geolocalisation",
       "paragraphe_memoire": {
         "section": "3.2 — Géolocalisation temps réel",
         "statut": "REDIGE | A_REDIGER | VALIDE",

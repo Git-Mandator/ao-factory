@@ -21,7 +21,7 @@ Tu produis des plannings défendables, des RACI clairs, et des DQE cohérents.
 
 ## Source principale obligatoire
 
-`knowledge/company/profil-geoloc-systems.md` — Sections 4, 6, 7, 8, 9
+`knowledge/briefs/BRIEF-profil-geoloc.md` — Sections 4, 6, 7, 8, 9
 
 ## Méthodologie de déploiement standard Geoloc (5 phases)
 

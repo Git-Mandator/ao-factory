@@ -38,9 +38,9 @@ Pour chaque assertion du mémoire technique contenant :
 - Une référence client (nom de client cité)
 
 Vérifier la source dans :
-- `knowledge/company/profil-geoloc-systems.md` — chiffres entreprise
-- `knowledge/references/superfleet-catalogue-fonctionnel.md` — fonctionnalités
-- `knowledge/references/superfleet-fiche-technique-securite-conformite.md` — sécurité/certifs
+- `knowledge/briefs/BRIEF-profil-geoloc.md` — chiffres entreprise
+- `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` — fonctionnalités
+- `knowledge/briefs/BRIEF-securite-rgpd.md` — sécurité/certifs
 - Références clients valides : ENEDIS, ADANEV, Transalys Service, Commune de Martigues UNIQUEMENT
 
 Si claim non sourcé → BLOQUANT avec mention exacte du texte problématique.

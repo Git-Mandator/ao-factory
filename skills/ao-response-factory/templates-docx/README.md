@@ -28,10 +28,10 @@ dossier de réponse AO. Ils utilisent la bibliothèque `docx` (npm v9+).
 
 ```javascript
 const C = {
-  BLEU_FONCE:    "1F3864",  // Titres H1, couverture
-  BLEU_MED:      "2E75B6",  // Titres H2, en-têtes tableaux
-  BLEU_LIGHT:    "D6E4F7",  // Fonds de section
-  BLEU_ALT:      "EBF3FB",  // Alternance lignes
+  BLEU_FONCE:    "1565C0",  // Titres H1, couverture
+  BLEU_MED:      "4285F4",  // Titres H2, en-têtes tableaux
+  BLEU_LIGHT:    "F1F5F9",  // Fonds de section
+  BLEU_ALT:      "E2E8F0",  // Alternance lignes
   VERT_LIGHT:    "E2EFDA",  // Statuts OK
   ORANGE_LIGHT:  "FCE4D6",  // Statuts PARTIEL / alertes
   ROUGE_LIGHT:   "FFCCCC",  // Statuts NON / bloquants
