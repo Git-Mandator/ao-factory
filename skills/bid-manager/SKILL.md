@@ -23,6 +23,12 @@ knowledge_base:
 
 # Skill : Bid Manager — Rédacteur Mémoire Technique
 
+> 🔒 **v3.6 PRÉSÉANCE (règle dure)** — ce skill est un **wrapper** :
+> il **charge les briefs et le contexte**, mais **délègue toute production** à l'agent producteur unique
+> **`a07-writer`** (cf. table de préséance dans `ao-response-factory/SKILL.md`).
+> En cas de double sollicitation par Cowork (skill + agent), **l'agent fait foi** : ne pas réécrire son livrable.
+
+
 ## Description
 
 Rédige le mémoire technique complet en réponse à un appel d'offres public,

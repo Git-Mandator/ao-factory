@@ -20,6 +20,12 @@ sop_phases: [1, 2]
 
 # Skill : Analyste CCTP
 
+> 🔒 **v3.6 PRÉSÉANCE (règle dure)** — ce skill est un **wrapper** :
+> il **charge les briefs et le contexte**, mais **délègue toute production** à l'agent producteur unique
+> **`a01-dce-analyst`** (cf. table de préséance dans `ao-response-factory/SKILL.md`).
+> En cas de double sollicitation par Cowork (skill + agent), **l'agent fait foi** : ne pas réécrire son livrable.
+
+
 ## Description
 
 Analyse les Cahiers des Clauses Techniques Particulières (CCTP) pour extraire les exigences clés,

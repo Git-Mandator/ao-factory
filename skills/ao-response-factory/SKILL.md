@@ -131,6 +131,33 @@ Remise — Production .docx     → skill docx       → Dossier remise/ complet
 | 10 | Vérificateur QA | `bid-manager` + `evidence-builder` | 7 | `phases/phase7-qa-remise.md` |
 | 11 | Producteur .docx ⭐ | `docx` skill | Remise | `phases/phase7-qa-remise.md` |
 
+---
+
+### 🔒 TABLE DE PRÉSÉANCE — règle dure v3.6 (agent ↔ skill)
+
+<!-- v3.6 P2 : formalise les 5 doublons agent↔skill. Chaque skill listé "wrapper" charge le contexte
+     et délègue la PRODUCTION à l'agent producteur unique. En cas de conflit, l'AGENT FAIT FOI. -->
+
+> **Règle dure** : pour chaque livrable, **un seul agent producteur**. Les skills homonymes sont
+> des **wrappers** : ils sont les points d'entrée (mots-clés Cowork), chargent les briefs et le
+> contexte, mais **ne réécrivent pas** le livrable de l'agent. En cas de double sollicitation,
+> **l'agent fait foi**.
+
+| Domaine | Producteur unique (AGENT) | Wrapper (skill, point d'entrée) | Livrable produit |
+|---|---|---|---|
+| Analyse DCE + GO/NO GO | **`a01-dce-analyst`** | `cctp-analyzer` | `SYNTH_AO.md` + `EXIGENCES.json` + `GONOGO.json` |
+| Stratégie de réponse | **`a00b-bid-strategist`** | (aucun) | `strategie/STRATEGIE.md` |
+| Matrice fonctionnelle | **`a02-requirements-miner`** | `bid-manager` | `MATRICE_CONFORMITE.md` (volet fonctionnel) |
+| Preuves / annexes | **`a03-evidence-librarian`** | `evidence-builder` | `annexes/PLAN_ANNEXES.md` |
+| Conformité RGPD / sécurité | **`a04-compliance-lead`** | `rgpd-security` | volet sécurité du mémoire + Annexe RGPD |
+| Architecture télématique | **`a05-telematics-architect`** | (aucun) | volet matériel du mémoire |
+| DQE / pricing / admin | **`a06-project-manager`** | `bid-manager` | `DQE_PRICING` + `ADMIN_CHECKLIST` |
+| Rédaction mémoire | **`a07-writer`** | `bid-manager` | `MEMOIRE_TECHNIQUE.md` |
+| QA finale (bloquante) | **`a08-qa-red-team`** | `qa-red-team` | `QA_CHECKLIST.md` + verdict GO_DEPOT |
+| Production .docx | (aucun agent) | `docx` skill (cross-domain) | fichiers `.docx` du dossier remise |
+
+> Chaque skill wrapper porte en tête le bloc « 🔒 v3.6 PRÉSÉANCE » qui rappelle cette règle.
+
 ### 📄 RÈGLE .DOCX OBLIGATOIRE (toute factory AO)
 
 > La factory produit TOUJOURS des fichiers `.docx` à la fin. Les `.md` sont des fichiers

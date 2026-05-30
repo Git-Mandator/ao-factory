@@ -12,6 +12,12 @@ description: >
 
 # Skill : QA Red Team — Validation Finale Bloquante
 
+> 🔒 **v3.6 PRÉSÉANCE (règle dure)** — ce skill est un **wrapper** :
+> il **charge les briefs et le contexte**, mais **délègue toute production** à l'agent producteur unique
+> **`a08-qa-red-team`** (cf. table de préséance dans `ao-response-factory/SKILL.md`).
+> En cas de double sollicitation par Cowork (skill + agent), **l'agent fait foi** : ne pas réécrire son livrable.
+
+
 Réalise le contrôle qualité complet d'un dossier AO avant tout dépôt.
 Ce skill est bloquant : un seul défaut critique = pas de dépôt.
 

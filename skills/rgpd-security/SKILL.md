@@ -15,6 +15,12 @@ knowledge_base:
 
 # Skill : Expert RGPD & Sécurité — Marchés Publics
 
+> 🔒 **v3.6 PRÉSÉANCE (règle dure)** — ce skill est un **wrapper** :
+> il **charge les briefs et le contexte**, mais **délègue toute production** à l'agent producteur unique
+> **`a04-compliance-lead`** (cf. table de préséance dans `ao-response-factory/SKILL.md`).
+> En cas de double sollicitation par Cowork (skill + agent), **l'agent fait foi** : ne pas réécrire son livrable.
+
+
 ## Description
 
 Rédige les volets RGPD, sécurité des données et cybersécurité dans les réponses aux appels d'offres.
