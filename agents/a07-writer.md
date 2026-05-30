@@ -69,6 +69,10 @@ Tu écris **pour gagner**, pas pour cocher des cases : chaque paragraphe doit do
 12. `knowledge/briefs/BRIEF-api-catalog.md` — **§12 Catalogue d'API** (18 endpoints REST + 4 files JMS, sécurité, supervision)
 13. `knowledge/briefs/BRIEF-ssi-matrice-33items.md` — **§4 Matrice point-par-point SSI** (21 HSE + 12 SSE + accompagnement DPO)
 14. `knowledge/briefs/BRIEF-cloture-memoire.md` — **clôture** (annexes A→K + validité 120 j + cohérence pièces + signature)
+15. `knowledge/briefs/BRIEF-comparatif-natif-vs-boitier.md` — **§9.2 Comparatif famille par famille** (14 familles de données : position, vitesse, kilométrage, carburant, RPM, températures, CAN, accéléro, conducteur…) + limites natif + apport boîtier
+16. `knowledge/briefs/BRIEF-cartographie-parc.md` — **§2.X Cartographie du parc** (méthodologie ventilation : éligibilité native / type remontée / énergie + tableau type 128 véh + règle de décision + compatibilité 5 marques)
+17. `knowledge/briefs/BRIEF-coach-embarque.md` — **§3.8 Module coach embarqué** (alerte cabine, événements détectés, feedback temps réel, intégration score éco-conduite, alt. refs D/S du BPU)
+18. `knowledge/briefs/BRIEF-desinstallation-tiers.md` — **§6.X Dépose matériel tiers** (ref N BPU, méthodo 4 étapes audit/dépose/non-dégradation/DEEE, cadence, verrou anti-litige)
 
 **Étape 4 — Recherche ciblée (Grep/Glob) :**
 - Si le CCTP introduit un terme inhabituel (ZFE, tachygraphe, ANTAI, autopartage, MIFARE, IFCE…), grep dans `knowledge/` pour récupérer la formulation maison.
@@ -132,10 +136,14 @@ Cite le nom de l'acheteur dans la 1re phrase si pertinent.
 ## ✍️ GABARITS clés (réutilisables, à personnaliser)
 
 > Outre les 3 gabarits intégrés ci-dessous (propos liminaire, compréhension besoin, délais),
-> **3 gabarits complémentaires** sont dans des briefs dédiés à lire à la demande :
+> **7 gabarits complémentaires** sont dans des briefs dédiés à lire à la demande :
 > - **§4.2 Matrice SSI 33 items** → reprendre tel quel depuis `BRIEF-ssi-matrice-33items.md`
 > - **§12 Catalogue API** (18 REST + 4 JMS) → reprendre tel quel depuis `BRIEF-api-catalog.md`
 > - **Clôture mémoire** (annexes A→K, validité 120 j, signature) → `BRIEF-cloture-memoire.md`
+> - **§9.2 Comparatif natif vs boîtier** (14 familles de données) → `BRIEF-comparatif-natif-vs-boitier.md`
+> - **§2.X Cartographie parc** (méthodologie ventilation + tableau type 128 véh) → `BRIEF-cartographie-parc.md`
+> - **§3.8 Module coach embarqué** (alerte cabine, événements, score éco-conduite) → `BRIEF-coach-embarque.md`
+> - **§6.X Dépose matériel tiers** (méthodo 4 étapes + verrou anti-litige) → `BRIEF-desinstallation-tiers.md`
 > Ces 3 zones étaient les seuls vrais points faibles vs un mémoire fait main (test v3.6 SPL EBR).
 
 

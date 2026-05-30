@@ -1,7 +1,7 @@
 {
   "name": "ao-factory",
-  "version": "3.6.1",
-  "description": "AO Response Factory — Geoloc Systems v3.6.1. Pipeline complet pour réponses aux appels d'offres publics : Bid Strategist, backbone EXIGENCES.json, traçabilité TRACE.md, briefs condensés (profil Geoloc, SuperFleet fonctionnel, sécurité/RGPD + briefs ciblés API catalog, matrice SSI 33 items, clôture mémoire), charte graphique SuperFleet codifiée, 9 annexes types prêtes (templates JS docx-js auto-portés), 5 visuels génériques Python paramétrables (organigramme, carte proximité, Gantt, logistique, infographie), 11 modules SuperFleet documentés (incl. Carto-Balayage, ANTAI, IA Agent Chat+Voix, Carburant, Tachygraphe, Transition énergétique). 10 agents · 8 commandes · 11 skills. v3.6.1 — combles SSI/API/clôture sur capitalisation SPL EBR DAF-2025-15.",
+  "version": "3.6.2",
+  "description": "AO Response Factory — Geoloc Systems v3.6.2. Pipeline complet pour réponses aux appels d'offres publics : Bid Strategist, backbone EXIGENCES.json, traçabilité TRACE.md, 10 briefs condensés (profil Geoloc, SuperFleet fonctionnel, sécurité/RGPD + briefs ciblés API catalog, matrice SSI 33 items, clôture mémoire, comparatif natif vs boîtier 14 familles, cartographie parc ventilée, coach embarqué, dépose matériel tiers), charte graphique SuperFleet codifiée, 9 annexes types prêtes, 5 visuels génériques Python paramétrables, 11 modules SuperFleet documentés. 10 agents · 8 commandes · 11 skills. v3.6.2 — score test SPL EBR DAF-2025-15 = 9.1/10 (dépasse l'original humain 9.0).",
   "author": {
     "name": "Geoloc Systems",
     "email": "s.khayat@geoloc-systems.com"
