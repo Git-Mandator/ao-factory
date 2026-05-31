@@ -1,12 +1,16 @@
 {
-  "name": "Geoloc Systems — AO Factory Marketplace",
-  "description": "Marketplace officiel du plugin ao-factory (Geoloc Systems / SuperFleet) — réponses aux appels d'offres publics français.",
+  "name": "geoloc-ao-factory",
+  "owner": {
+    "name": "Geoloc Systems",
+    "email": "s.khayat@geoloc-systems.com"
+  },
+  "description": "AO Response Factory - Geoloc Systems / SuperFleet - Reponses aux appels d'offres publics francais.",
   "plugins": [
     {
       "name": "ao-factory",
       "path": ".",
       "version": "3.6.2",
-      "description": "AO Response Factory — Geoloc Systems v3.6.2. Pipeline complet pour réponses aux appels d'offres publics : 10 agents · 8 commandes · 11 skills · 10 briefs KB capitalisés. Score test SPL EBR DAF-2025-15 = 9.1/10.",
+      "description": "AO Response Factory v3.6.2 - 10 agents, 8 commandes, 11 skills, 10 briefs KB capitalises. Score test SPL EBR DAF-2025-15 = 9.1/10.",
       "author": {
         "name": "Geoloc Systems",
         "email": "s.khayat@geoloc-systems.com"
