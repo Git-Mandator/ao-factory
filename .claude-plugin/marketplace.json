@@ -1,30 +1,12 @@
 {
-  "name": "geoloc-ao-factory",
-  "owner": {
-    "name": "Geoloc Systems",
-    "email": "s.khayat@geoloc-systems.com"
-  },
-  "description": "AO Response Factory - Geoloc Systems / SuperFleet - Reponses aux appels d'offres publics francais.",
+  "name": "ao-factory",
+  "owner": { "name": "geoloc-systems" },
   "plugins": [
     {
       "name": "ao-factory",
-      "path": ".",
+      "source": "./",
       "version": "3.6.2",
-      "description": "AO Response Factory v3.6.2 - 10 agents, 8 commandes, 11 skills, 10 briefs KB capitalises. Score test SPL EBR DAF-2025-15 = 9.1/10.",
-      "author": {
-        "name": "Geoloc Systems",
-        "email": "s.khayat@geoloc-systems.com"
-      },
-      "keywords": [
-        "appel-offres",
-        "marche-public",
-        "geoloc",
-        "superfleet",
-        "telematique",
-        "DCE",
-        "CCTP",
-        "memoire-technique"
-      ]
+      "description": "AO Response Factory v3.6.2 - reponses aux appels d'offres publics francais (SuperFleet). 10 agents, 11 skills, 8 commandes, 10 briefs KB."
     }
   ]
 }
