@@ -1,6 +1,6 @@
 ---
 name: ao-response-factory
-version: "3.6.3"
+version: "3.6.4"
 domain: AO_FACTORY
 language: fr
 role: orchestrateur
@@ -19,6 +19,7 @@ output_formats:
   intermediate: md+json
   pricing: xlsx
 knowledge_base:
+  - knowledge/briefs/BRIEF-structure-memoire-gagnant.md
   - knowledge/briefs/BRIEF-profil-geoloc.md
   - knowledge/briefs/BRIEF-superfleet-fonctionnel.md
   - knowledge/briefs/BRIEF-securite-rgpd.md

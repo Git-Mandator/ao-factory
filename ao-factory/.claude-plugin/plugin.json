@@ -1,7 +1,7 @@
 {
   "name": "ao-factory",
-  "version": "3.6.3",
-  "description": "AO Response Factory — Geoloc Systems v3.6.3. Pipeline complet pour réponses aux appels d'offres publics : 11 briefs condensés (profil Geoloc, SuperFleet fonctionnel, sécurité/RGPD, API catalog, matrice SSI 33 items, clôture mémoire, comparatif natif vs boîtier 14 familles, cartographie parc, coach embarqué, dépose matériel tiers, +wiki Teltonika technique 60 AVL IDs), charte graphique SuperFleet codifiée, 9 annexes types, 5 visuels génériques Python. Orchestrateur avec Phase 4bis (production annexes auto) + Phase 7bis (boucle correction QA max 3 itérations). 10 agents · 8 commandes · 11 skills. v3.6.3 — capitalisation SPL EBR + auto-réparation QA.",
+  "version": "3.6.4",
+  "description": "AO Response Factory — Geoloc Systems v3.6.4. Pipeline complet pour réponses aux appels d'offres publics : 12 briefs condensés dont le brief MAÎTRE 'structure-memoire-gagnant' (structure miroir RC sous-critère/points + 4 patterns de forme gagnants, capitalisation Garges 49,5/50 + Résidences 78 gagné), profil Geoloc, SuperFleet fonctionnel, sécurité/RGPD, API catalog, matrice SSI 33 items, clôture, comparatif natif/boîtier, cartographie parc, coach embarqué, dépose tiers, wiki Teltonika 60 AVL IDs. Charte graphique SuperFleet, 9 annexes types, 5 visuels Python (organigramme avec photos/silhouettes, carte, Gantt, logistique, infographie). Orchestrateur 10 phases (4bis annexes auto + 7bis boucle QA). 10 agents · 8 commandes · 11 skills. v3.6.4 — rédaction miroir grille de notation + visuels intégrés.",
   "author": {
     "name": "Geoloc Systems",
     "email": "s.khayat@geoloc-systems.com"

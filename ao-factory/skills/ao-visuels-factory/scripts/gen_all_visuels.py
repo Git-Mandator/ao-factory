@@ -37,6 +37,19 @@ ROAD_LABEL_RIGHT = "A1 / N1"                         # Autoroute seconde moitié
 FLEET_SIZE = 130                                     # Nombre de véhicules équipables
 DEPLOY_WEEKS = 6                                     # Durée déploiement initial
 
+# --- Photos équipe (organigramme) ---
+# Mettre le chemin absolu de la photo si disponible, sinon None → silhouette neutre.
+# Photos connues : RH-Recrutement/CVs/ (Said, Mustapha, Samia). Les autres = silhouette.
+PHOTOS = {
+    "Said KHAYAT":      None,   # ex: "/Users/saidkhayat/Documents/_Personnel/photo said linkedin.jpeg"
+    "Mustapha KHEROUA": None,   # ex: ".../RH-Recrutement/CVs/Mustapha KHEROUA.png"
+    "Samia MAKHLOUF":   None,   # ex: ".../RH-Recrutement/CVs/Samia MAKHLOUF.png"
+    "Clément NOEL":     None,   # silhouette
+    "Walid KHEROUA":    None,   # silhouette
+    "Smaël KESSOURI":   None,   # silhouette
+    "Chaima GACI":      None,   # silhouette
+}
+
 # --- Sortie ---
 OUTPUT_DIR = "./images"
 
@@ -60,14 +73,46 @@ PURPLE_DARK = "#3D1B5C"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def font(size, bold=False):
+    # Ordre : Arial macOS (gère les accents FR), DejaVu Linux, fallback.
+    # ⚠️ La police par défaut Pillow ne gère PAS les accents — toujours résoudre une vraie TTF.
     paths = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/System/Library/Fonts/Supplemental/Arial Bold.ttf" if bold else "/System/Library/Fonts/Supplemental/Arial.ttf",
         "/Library/Fonts/Arial Bold.ttf" if bold else "/Library/Fonts/Arial.ttf",
+        "/System/Library/Fonts/Helvetica.ttc",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf" if bold else "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
     ]
     for p in paths:
         if os.path.exists(p):
-            return ImageFont.truetype(p, size)
+            try:
+                return ImageFont.truetype(p, size)
+            except Exception:
+                continue
     return ImageFont.load_default()
+
+def avatar(d, img, cx, cy, r, name):
+    """Colle la photo de `name` (cercle) si disponible dans PHOTOS, sinon dessine une
+    silhouette neutre. Jamais de case vide, jamais de photo inventée."""
+    photo_path = PHOTOS.get(name)
+    if photo_path and os.path.exists(photo_path):
+        try:
+            ph = Image.open(photo_path).convert("RGB")
+            # crop carré centré + resize
+            w, h = ph.size; s = min(w, h)
+            ph = ph.crop(((w-s)//2, (h-s)//2, (w-s)//2+s, (h-s)//2+s)).resize((2*r, 2*r))
+            mask = Image.new("L", (2*r, 2*r), 0)
+            ImageDraw.Draw(mask).ellipse([0, 0, 2*r, 2*r], fill=255)
+            img.paste(ph, (cx-r, cy-r), mask)
+            d.ellipse([cx-r, cy-r, cx+r, cy+r], outline=PURPLE, width=3)
+            return
+        except Exception:
+            pass
+    # Silhouette neutre (avatar gris)
+    d.ellipse([cx-r, cy-r, cx+r, cy+r], fill="#E2E8F0", outline=GRAY_LIGHT, width=2)
+    # tête
+    hr = int(r*0.38)
+    d.ellipse([cx-hr, cy-int(r*0.45), cx+hr, cy-int(r*0.45)+2*hr], fill="#94A3B8")
+    # épaules
+    d.pieslice([cx-int(r*0.62), cy+int(r*0.05), cx+int(r*0.62), cy+int(r*1.25)], 180, 360, fill="#94A3B8")
 
 # ============================================================================
 # VISUEL 1 — Organigramme projet
@@ -113,39 +158,43 @@ def visuel_organigramme():
 
     # GESTION DE PROJET
     d.text((W//2, 420), "GESTION DE PROJET", font=font(22, True), fill=GRAY, anchor="mm")
-    rounded_box(600, 470, 600, 140, PURPLE_DARK)
-    d.text((900, 502), "Directeur Projet", font=font(18, True), fill=ORANGE, anchor="mm")
-    d.text((900, 540), "Said KHAYAT", font=font(28, True), fill=WHITE, anchor="mm")
-    d.text((900, 575), "Co-fondateur — 22 ans d'expérience", font=font(15), fill=WHITE, anchor="mm")
-    d.text((900, 597), "Pilotage stratégique • COPIL trimestriel", font=font(13), fill="#E5E7EB", anchor="mm")
+    rounded_box(600, 470, 600, 150, PURPLE_DARK)
+    avatar(d, img, 690, 545, 52, "Said KHAYAT")   # photo/silhouette à gauche de la box
+    d.text((960, 502), "Directeur Projet", font=font(18, True), fill=ORANGE, anchor="mm")
+    d.text((960, 540), "Said KHAYAT", font=font(28, True), fill=WHITE, anchor="mm")
+    d.text((960, 575), "Co-fondateur — 22 ans d'expérience", font=font(15), fill=WHITE, anchor="mm")
+    d.text((960, 600), "Pilotage stratégique • COPIL trimestriel", font=font(13), fill="#E5E7EB", anchor="mm")
 
     # Resp. Formation
-    rounded_box(120, 700, 480, 220, "#FEF3C7", outline=ORANGE)
-    d.text((360, 730), "Responsable Formation", font=font(15, True), fill=PURPLE_DARK, anchor="mm")
-    d.text((360, 775), "Samia MAKHLOUF", font=font(22, True), fill=PURPLE_DARK, anchor="mm")
-    d.text((360, 810), "13 ans d'expérience", font=font(14), fill=GRAY, anchor="mm")
-    d.text((360, 855), "Plan formation Admin / Gest. / Terrain", font=font(13), fill=GRAY, anchor="mm")
-    d.text((360, 880), "Affichettes plastifiées agents", font=font(13), fill=GRAY, anchor="mm")
-    d.text((360, 905), "100 % phase formation puis à la demande", font=font(12, True), fill=PURPLE, anchor="mm")
+    rounded_box(120, 700, 480, 240, "#FEF3C7", outline=ORANGE)
+    avatar(d, img, 195, 775, 46, "Samia MAKHLOUF")
+    d.text((400, 730), "Responsable Formation", font=font(15, True), fill=PURPLE_DARK, anchor="mm")
+    d.text((400, 768), "Samia MAKHLOUF", font=font(20, True), fill=PURPLE_DARK, anchor="mm")
+    d.text((400, 800), "13 ans d'expérience", font=font(13), fill=GRAY, anchor="mm")
+    d.text((360, 850), "Plan formation Admin / Gest. / Terrain", font=font(13), fill=GRAY, anchor="mm")
+    d.text((360, 875), "Affichettes plastifiées agents", font=font(13), fill=GRAY, anchor="mm")
+    d.text((360, 912), "100 % phase formation puis à la demande", font=font(12, True), fill=PURPLE, anchor="mm")
 
     # Chef de projet
-    rounded_box(660, 700, 480, 220, "#FEF3C7", outline=ORANGE)
-    d.text((900, 730), "Chef de Projet / Réf. Logiciel", font=font(15, True), fill=PURPLE_DARK, anchor="mm")
-    d.text((900, 775), "Mustapha KHEROUA", font=font(22, True), fill=PURPLE_DARK, anchor="mm")
-    d.text((900, 810), "Ing. Efrei — 10+ ans dev. SuperFleet", font=font(14), fill=GRAY, anchor="mm")
-    d.text((900, 855), "Paramétrage plateforme, intégration ANTAI", font=font(13), fill=GRAY, anchor="mm")
-    d.text((900, 880), "Support N2/N3, paramétrages spécifiques", font=font(13), fill=GRAY, anchor="mm")
-    d.text((900, 905), "50 % déploiement, puis appui continu", font=font(12, True), fill=PURPLE, anchor="mm")
+    rounded_box(660, 700, 480, 240, "#FEF3C7", outline=ORANGE)
+    avatar(d, img, 735, 775, 46, "Mustapha KHEROUA")
+    d.text((940, 730), "Chef de Projet / Réf. Logiciel", font=font(15, True), fill=PURPLE_DARK, anchor="mm")
+    d.text((940, 768), "Mustapha KHEROUA", font=font(20, True), fill=PURPLE_DARK, anchor="mm")
+    d.text((940, 800), "Ing. Efrei — 10+ ans SuperFleet", font=font(13), fill=GRAY, anchor="mm")
+    d.text((900, 850), "Paramétrage plateforme, intégration ANTAI", font=font(13), fill=GRAY, anchor="mm")
+    d.text((900, 875), "Support N2/N3, paramétrages spécifiques", font=font(13), fill=GRAY, anchor="mm")
+    d.text((900, 912), "50 % déploiement, puis appui continu", font=font(12, True), fill=PURPLE, anchor="mm")
 
-    # Resp. Technique
-    rounded_box(1200, 700, 480, 220, "#FEF3C7", outline=ORANGE)
-    d.text((1440, 730), "Resp. Technique & Maintenance", font=font(15, True), fill=PURPLE_DARK, anchor="mm")
-    d.text((1440, 775), "Clément NOEL", font=font(22, True), fill=PURPLE_DARK, anchor="mm")
-    d.text((1440, 800), "+ Walid KHEROUA", font=font(18, True), fill=PURPLE_DARK, anchor="mm")
-    d.text((1440, 835), "Techniciens 10+ ans — Hab. B2VL/BR", font=font(13), fill=GRAY, anchor="mm")
-    d.text((1440, 860), "Pose / dépose / maintenance sur site", font=font(13), fill=GRAY, anchor="mm")
-    d.text((1440, 885), "Stock tampon — intervention < 30 min", font=font(13), fill=GRAY, anchor="mm")
-    d.text((1440, 910), "100 % installation, puis < 3 j ouvrés", font=font(12, True), fill=PURPLE, anchor="mm")
+    # Resp. Technique (2 silhouettes : Clément + Walid)
+    rounded_box(1200, 700, 480, 240, "#FEF3C7", outline=ORANGE)
+    avatar(d, img, 1265, 770, 40, "Clément NOEL")
+    avatar(d, img, 1340, 770, 40, "Walid KHEROUA")
+    d.text((1470, 730), "Resp. Technique & Maintenance", font=font(15, True), fill=PURPLE_DARK, anchor="mm")
+    d.text((1470, 768), "Clément NOEL", font=font(19, True), fill=PURPLE_DARK, anchor="mm")
+    d.text((1470, 795), "+ Walid KHEROUA", font=font(16, True), fill=PURPLE_DARK, anchor="mm")
+    d.text((1440, 838), "Techniciens 10+ ans — Hab. B2VL/BR", font=font(13), fill=GRAY, anchor="mm")
+    d.text((1440, 863), "Pose / dépose / maintenance sur site", font=font(13), fill=GRAY, anchor="mm")
+    d.text((1440, 912), "100 % installation, puis < 3 j ouvrés", font=font(12, True), fill=PURPLE, anchor="mm")
 
     # Lignes arbre
     d.line([(900, 610), (900, 650), (360, 650), (360, 700)], fill=PURPLE_DARK, width=2)

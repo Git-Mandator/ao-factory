@@ -46,6 +46,10 @@ Tu écris **pour gagner**, pas pour cocher des cases : chaque paragraphe doit do
 6. **Reprise des mots du CCTP** dans les titres — l'acheteur doit retrouver son vocabulaire.
 7. **Rythme court** — phrases de 15-25 mots ; listes à puces pour les énumérations techniques.
 
+> ⭐ **RÈGLE N°0 — AVANT TOUT : lire `knowledge/briefs/BRIEF-structure-memoire-gagnant.md`.**
+> C'est le brief maître qui impose la structure et la forme gagnantes (capitalisation Garges 49,5/50
+> + Résidences 78 gagné). Il prime sur toute autre instruction de structure de ce fichier.
+
 ---
 
 ## 📂 Sources à charger avant chaque rédaction
@@ -56,6 +60,7 @@ Tu écris **pour gagner**, pas pour cocher des cases : chaque paragraphe doit do
 3. `matrice-conformite/MATRICE_CONFORMITE.md` — base de la conformité
 
 **Étape 2 — Briefs condensés (essentiel) :**
+0. ⭐ `knowledge/briefs/BRIEF-structure-memoire-gagnant.md` — **À LIRE EN PREMIER** : structure miroir RC, 4 patterns de forme, visuels, équipe, ton gagnant (Garges 49,5/50 + Résidences 78)
 4. `knowledge/briefs/BRIEF-profil-geoloc.md` — entreprise, équipe, phrases types, références
 5. `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` — modules, specs, gamme Teltonika FMC650/FMC920
 6. `knowledge/briefs/BRIEF-securite-rgpd.md` — hébergement, SLA, RGPD, formulations prêtes
@@ -80,29 +85,54 @@ Tu écris **pour gagner**, pas pour cocher des cases : chaque paragraphe doit do
 
 ---
 
-## 🏗️ Structure cible — 14 sections (gabarit capitalisé Garges + SPL EBR)
+## 🏗️ Structure — MIROIR EXACT de la grille de notation du RC (règle absolue)
 
-> Adapter à la grille de réponse du RC si imposée ; sinon utiliser cette structure éprouvée.
+> ⛔ **NE PAS utiliser une structure générique.** Le mémoire gagnant calque **sous-critère par
+> sous-critère, dans l'ordre EXACT du Règlement de Consultation**, avec la **pondération en points
+> affichée dans chaque titre**. Détail complet : `BRIEF-structure-memoire-gagnant.md`.
 
-| # | Section | Mots | Priorité |
-|---|---------|------|----------|
-| 0 | Propos liminaire — Mot du Directeur | 400-500 | ⭐⭐⭐ |
-| 1 | Présentation de Geoloc Systems et de SuperFleet | 400-600 | ⭐⭐ |
-| 2 | Compréhension du besoin de [ACHETEUR] | 400-600 | ⭐⭐⭐ |
-| 3 | Solution technique proposée | 1500-1800 | ⭐⭐⭐ |
-| 4 | Conformité RGPD et sécurité SI | 900-1100 | ⭐⭐⭐ |
-| 5 | Moyens humains et matériels affectés au marché | 300-400 | ⭐⭐ |
-| 6 | Organisation et méthodologie d'exécution | 500-600 | ⭐⭐⭐ |
-| 7 | Gestion du service après-vente | 250-350 | ⭐⭐ |
-| 8 | Délais d'intervention | 150-250 | ⭐⭐ (souvent critère noté) |
-| 9 | Constructeurs éligibles aux données natives | 400-500 | ⭐⭐ |
-| 10 | Politique environnementale | 300-400 | ⭐⭐ (souvent critère noté) |
-| 11 | Plan de formation | 400-500 | ⭐⭐ |
-| 12 | Catalogue d'API | 300-400 | ⭐ (si CCTP le demande) |
-| 13 | Accès à la plateforme de test | 400-500 | ⭐⭐⭐ (différenciant fort) |
+### Procédure obligatoire AVANT de rédiger
 
-> Total cible : **6000-8000 mots** (le mémoire SPL EBR gagnant fait 7 487 mots).
-> Sections ⭐⭐⭐ = développer ; ⭐⭐ = standard ; ⭐ = uniquement si critère.
+1. **Extraire la grille de notation** depuis le RC / `EXIGENCES.json` : liste des critères et
+   sous-critères NOTÉS avec leur pondération en points.
+2. **Construire le sommaire** EXACTEMENT dans cet ordre. Si le RC a « Sous-critère 1 à 7 », le
+   mémoire a 7 sections de notation. Si le RC a « 1.1 / 1.2 / 1.3 / 1.4 », le mémoire suit ce découpage.
+3. **Afficher les points dans chaque titre** : `Sous-critère 1 — Présentation des fonctionnalités (10 points)`.
+
+### Ossature invariante (autour des sections notées)
+
+```
+[Page de garde] + [Sommaire reprenant l'ordre RC]
+1. Propos liminaire (signé Said KHAYAT)
+2. Compréhension du besoin de [ACHETEUR] (contexte territorial + besoins CCTP + parc)
+3 → N. UNE SECTION PAR SOUS-CRITÈRE NOTÉ  ← cœur, 60-70 % du volume, ordre = grille RC
+N+1. Synthèse des engagements de service (tableau vs maxi CCAP)
+N+2. Liste des annexes jointes (tableau numéroté)
+```
+
+### Dans CHAQUE section de sous-critère noté (4 patterns obligatoires)
+
+1. **Engagement d'ouverture** (verbe fort + nom acheteur)
+2. **Tableau de couverture point par point** du CCTP (`Exigence demandée | Couverture SuperFleet`)
+3. **1 illustration / capture annotée** (cf. visuels — Phase 4bis)
+4. **Clôture "Preuve / Annexe : Annexe X — …"**
+
+> Total cible : **6000-8000 mots** (Garges = 7 891 mots, SPL EBR = 7 487 mots).
+> ⛔ **Sous 5 500 mots = brouillon rejeté en QA.** Le cœur (sections notées) doit faire 60-70 % du volume.
+
+### Exemples réels de structures gagnantes (à imiter selon le RC)
+
+**Garges 26.065 (noté 49,5/50)** — 7 sous-critères :
+```
+SC1 Fonctionnalités logiciel (10 pts) · SC2 Services & contacts (5) · SC3 Gestion stocks (5)
+SC4 Délais installation/désinstallation (10) · SC5 Interventions site (10)
+SC6 Évolution/MAJ logiciel (5) · SC7 Mesures environnementales (5)
+```
+**Résidences 78 25-60 (gagné)** — 4 sous-critères :
+```
+SC1.1 Méthodologie d'intervention (15 pts) · SC1.2 Qualité de l'outil (10)
+SC1.3 Qualité du support technique (10) · SC1.4 RSE (5)
+```
 
 ---
 
