@@ -1,7 +1,7 @@
 {
   "name": "ao-factory",
-  "version": "3.6.2",
-  "description": "AO Response Factory — Geoloc Systems v3.6.2. Pipeline complet pour réponses aux appels d'offres publics : Bid Strategist, backbone EXIGENCES.json, traçabilité TRACE.md, 10 briefs condensés (profil Geoloc, SuperFleet fonctionnel, sécurité/RGPD + briefs ciblés API catalog, matrice SSI 33 items, clôture mémoire, comparatif natif vs boîtier 14 familles, cartographie parc ventilée, coach embarqué, dépose matériel tiers), charte graphique SuperFleet codifiée, 9 annexes types prêtes, 5 visuels génériques Python paramétrables, 11 modules SuperFleet documentés. 10 agents · 8 commandes · 11 skills. v3.6.2 — score test SPL EBR DAF-2025-15 = 9.1/10 (dépasse l'original humain 9.0).",
+  "version": "3.6.3",
+  "description": "AO Response Factory — Geoloc Systems v3.6.3. Pipeline complet pour réponses aux appels d'offres publics : 11 briefs condensés (profil Geoloc, SuperFleet fonctionnel, sécurité/RGPD, API catalog, matrice SSI 33 items, clôture mémoire, comparatif natif vs boîtier 14 familles, cartographie parc, coach embarqué, dépose matériel tiers, +wiki Teltonika technique 60 AVL IDs), charte graphique SuperFleet codifiée, 9 annexes types, 5 visuels génériques Python. Orchestrateur avec Phase 4bis (production annexes auto) + Phase 7bis (boucle correction QA max 3 itérations). 10 agents · 8 commandes · 11 skills. v3.6.3 — capitalisation SPL EBR + auto-réparation QA.",
   "author": {
     "name": "Geoloc Systems",
     "email": "s.khayat@geoloc-systems.com"
