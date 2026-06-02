@@ -49,6 +49,7 @@ Tu ne rédiges pas toi-même — tu délègues aux agents spécialisés et tu va
 | 5 | A06 | DQE_PRICING.md | Cohérence volumes + prix |
 | 6 | A06+A03 | ADMIN_CHECKLIST.md | Pièces bloquantes identifiées |
 | 7 | A08 | QA_CHECKLIST.md (GO_DEPOT) | ⛔ BLOQUANT si erreur + **annexes citées dans le mémoire existent physiquement dans `remise/Annexes/`** |
+| **7bis** | **A07 (boucle correction)** | **MEMOIRE_TECHNIQUE.md corrigé** | **max 3 itérations** — relancer A08 après chaque correction. Échec après 3 → escalade Said |
 | 8 | — | remise/ complet | GO_DEPOT confirmé |
 
 ## Règles absolues
@@ -74,3 +75,58 @@ Tu ne rédiges pas toi-même — tu délègues aux agents spécialisés et tu va
 6. **Si une annexe ne peut pas être produite** (donnée manquante) → marquer 🔴 dans l'INDEX + remonter immédiatement à Said KHAYAT avant Phase 5.
 
 > **Justification** : sans cette phase, le mémoire cite des annexes qui n'existent pas dans le dossier de remise — risque d'élimination en commission technique (la cohérence pièces est vérifiée par l'acheteur).
+
+## Phase 7bis — Boucle correction QA (auto-réparation)
+
+**Déclenchée automatiquement si Phase 7 émet BLOQUANT.**
+
+Principe : ne pas escalader à l'humain au premier bloquant — laisser l'orchestrateur tenter jusqu'à **3 itérations** de correction automatique avant d'arrêter.
+
+### Algorithme
+
+```
+iteration = 0
+while iteration < 3:
+    qa_result = lire QA_CHECKLIST.md
+    if qa_result == GO_DEPOT: break  # succès, passer à Phase 8
+    iteration += 1
+    log "Itération correction #{iteration} — {N} bloquants détectés"
+
+    # Construire le brief de correction pour A07
+    brief = {
+        bloquants: liste des erreurs avec fichier + ligne + correction proposée,
+        avertissements: idem (à corriger si possible),
+        sections_a_reecrire: déduire les sections concernées,
+        contraintes: NE PAS toucher aux sections déjà validées (GO),
+    }
+
+    # Invoquer A07 avec le brief de correction
+    a07_corriger(brief) → réécrit MEMOIRE_TECHNIQUE.md sur les sections fautives
+
+    # Re-passer A08 pour re-valider
+    a08_relancer() → QA_CHECKLIST.md mis à jour
+
+if iteration == 3 and qa_result != GO_DEPOT:
+    # Échec après 3 tentatives — escalade humaine OBLIGATOIRE
+    log "❌ ÉCHEC AUTO-CORRECTION après 3 itérations"
+    notifier Said KHAYAT avec : liste des erreurs résiduelles + historique des 3 tentatives
+    HALT  # ne pas produire remise/
+```
+
+### Règles de la boucle
+
+1. **Une seule responsabilité par itération** : A07 corrige uniquement les sections listées par A08, pas le reste du mémoire.
+2. **Pas de réécriture totale** : passer en mode Edit (chirurgical), pas Write (refonte).
+3. **Trace obligatoire** : chaque itération journalise dans `remise/10-journal-tracabilite.md` (nb bloquants avant/après, sections touchées, agent).
+4. **Bloquants non corrigeables automatiquement** : un claim non sourcé qui nécessite une décision Said (ex : nom DPO, % CO₂ exact, libellé ref BPU) → **immédiate escalade**, pas de boucle.
+5. **Régression interdite** : si l'itération introduit un NOUVEAU bloquant qui n'existait pas avant, annuler l'itération et escalader.
+
+### Critère d'escalade immédiate (pas de boucle)
+
+L'orchestrateur passe directement à Said sans tenter la boucle si :
+- Erreur FleetWatcher détectée (anomalie de plugin, pas de rédaction)
+- Boîtier EOL mentionné (anomalie KB, pas de rédaction)
+- `[A_CONFIRMER]` résiduel sur donnée que seul Said peut trancher (nom DPO, signataire, dates exactes…)
+- Périmètre marché différent entre mémoire et DQE (incohérence métier, pas typo)
+
+> **Justification** : sans cette boucle, le QA est purement bloquant — chaque rejet exige 30 min de relecture humaine + relance manuelle. Avec la boucle, 80 % des corrections (typos, oublis de citation, contradictions chiffrées internes) sont résolues automatiquement, et l'humain n'intervient que sur les vraies décisions métier (les 20 % restants).
