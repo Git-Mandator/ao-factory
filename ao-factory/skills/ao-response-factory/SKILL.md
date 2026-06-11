@@ -1,6 +1,6 @@
 ---
 name: ao-response-factory
-version: "3.6.8"
+version: "3.6.9"
 domain: AO_FACTORY
 language: fr
 role: orchestrateur
@@ -58,7 +58,7 @@ target_volume_memoire:
   pages_docx_estimees: "25-35"
 ---
 
-# Skill : AO Response Factory — Orchestrateur Maître v3.6.8
+# Skill : AO Response Factory — Orchestrateur Maître
 
 Ce skill industrialise la chaîne complète : **DCE → Analyse → GO/NO GO → Matrice → Mémoire → Annexes → DQE → Admin → QA → Remise.**
 
@@ -308,7 +308,7 @@ Lire `10_GEOLOC_SYSTEMS_CORE/skills/telematics-expert/SKILL.md` pour les argumen
 ## 🎯 FORMAT DE DÉMARRAGE
 
 ```
-🏭 AO RESPONSE FACTORY v3.6.8 — DÉMARRAGE
+🏭 AO RESPONSE FACTORY v[lire le champ "version" dans .claude-plugin/plugin.json à la racine du plugin] — DÉMARRAGE
 
 📋 VÉRIFICATION DCE — [RÉFÉRENCE MARCHÉ si connue]
 

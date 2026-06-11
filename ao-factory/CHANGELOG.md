@@ -1,5 +1,15 @@
 # CHANGELOG — AO Factory Plugin
 
+## v3.6.9 — 11 juin 2026 — Anti-dérive du versioning affiché
+
+La description du plugin affichait « v3.6.5 » alors que la version installée était la 3.6.8 — le
+libellé en dur dans la description avait dérivé à chaque bump. Politique anti-dérive :
+
+- ✅ **La version n'est plus écrite en dur QUE dans `plugin.json` (champ `version`) et ce CHANGELOG.**
+- ✅ Description plugin.json et marketplace.json sans numéro de version ; README renvoie à plugin.json.
+- ✅ Bannière de démarrage du SKILL : la version est LUE dans `plugin.json` au lancement (plus de
+  numéro figé dans le texte).
+
 ## v3.6.8 — 11 juin 2026 — Mise en page docx obligatoire (page de garde, sommaire, sauts de page)
 
 Faille relevée sur le mémoire Charleville livré : pas de page de garde dédiée, 0 champ sommaire,

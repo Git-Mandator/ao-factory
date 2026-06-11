@@ -7,7 +7,7 @@
     {
       "name": "ao-factory",
       "source": "./ao-factory",
-      "description": "AO Response Factory v3.6.8 - 10 agents, 11 skills, 8 commandes, 12 briefs KB. Reponses aux appels d'offres publics francais (SuperFleet)."
+      "description": "AO Response Factory - 10 agents, 11 skills, 8 commandes, 12 briefs KB. Reponses aux appels d'offres publics francais (SuperFleet). Version : voir plugin.json/CHANGELOG."
     }
   ]
 }
