@@ -64,6 +64,19 @@ Vérifier :
 - Périmètre (lots, sites) cohérent dans tous les documents
 - Annexes citées (« cf. Annexe X ») existent physiquement dans `remise/Annexes/`
 
+### 4bis. Phase 4bis exécutée — annexes & visuels présents (corrigeable par boucle)
+
+```bash
+ls remise/Annexes/ 2>/dev/null | wc -l   # 0 ou dossier absent = Phase 4bis non exécutée
+```
+
+- `remise/Annexes/` absent ou vide → 🔴 **BLOQUANT « Phase 4bis non exécutée »**, corrigeable boucle :
+  la correction est de lancer `ao-annexes-factory` + `ao-visuels-factory`, **PAS d'attendre un
+  arbitrage humain** (les 9 annexes types n'en dépendent pas — cf. a00-orchestrator §Phase 4bis)
+- `remise/Annexes/INDEX-REMISE.md` présent, chaque entrée avec statut 🟢/🟠/🔴
+- Toute annexe 🔴 (donnée manquante) → entrée dans 🔵 ESCALADE, mais ne bloque pas les 🟢
+- ≥ 1 illustration/visuel référencé par section notée du mémoire → sinon 🟡 Avertissement
+
 ### 5. Couverture CCTP (corrigeable par boucle si REQ simple, escalade si REQ complexe)
 
 Vérifier que toutes les REQ de `synthese/EXIGENCES.json` sont adressées dans le mémoire.

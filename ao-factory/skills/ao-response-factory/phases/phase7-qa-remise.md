@@ -24,6 +24,7 @@
 - [ ] Tous les critères du RC ont une section dédiée dans le mémoire (structure miroir grille RC)
 - [ ] Pondération des critères respectée (sections les plus longues = critères les plus pondérés)
 - [ ] **Volume du mémoire ≥ 5 500 mots** (cible 6 000-8 000) — compté avec `wc -w`, pas estimé (cf. a08 §6bis)
+- [ ] `remise/Annexes/` présent et non vide + `INDEX-REMISE.md` (Phase 4bis exécutée — NON différable, même en attente d'arbitrages)
 - [ ] Toutes les annexes citées dans le mémoire sont incluses dans le dossier
 - [ ] Format de fichier conforme aux exigences RC (PDF, Word, taille max, etc.)
 - [ ] Date limite de remise vérifiée et respectée

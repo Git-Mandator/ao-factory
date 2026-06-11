@@ -1,5 +1,24 @@
 # CHANGELOG — AO Factory Plugin
 
+## v3.6.6 — 11 juin 2026 — Phase 4bis NON différable
+
+Seconde faille relevée sur l'AO Charleville-Mézières 26F17 : la Phase 4bis (annexes + visuels)
+n'a jamais été exécutée — `remise/` livrée sans aucun dossier `Annexes/`. Le run l'avait différée
+« en attente des arbitrages Direction », alors que les 9 annexes types n'en dépendent pas
+(seule l'annexe armoire à clés était liée au sourcing C3).
+
+- ✅ **a00-orchestrator §Phase 4bis** : règle ⛔ NON DIFFÉRABLE — jamais de report pour cause
+  d'arbitrages en attente ou d'ESCALADE_HUMAIN ; les 9 annexes types (tableau de bord, CR
+  COPIL/COTECH, PV de vérification, suivi installations, fiche Teltonika, plan de formation,
+  illustrations SuperFleet, lecteur MIFARE) sont produites systématiquement ; seule une annexe à
+  donnée manquante passe en 🔴 sans bloquer les autres.
+- ✅ **a08-qa-red-team §4bis** : nouveau contrôle BLOQUANT « Phase 4bis non exécutée » si
+  `remise/Annexes/` est absent ou vide — corrigeable boucle (relancer les factories), pas une
+  décision humaine ; vérification d'INDEX-REMISE.md et avertissement si pas d'illustration par
+  section notée.
+- ✅ **SKILL.md (workflow) + phases/phase7-qa-remise.md** : annotation NON DIFFÉRABLE + item de
+  checklist correspondant.
+
 ## v3.6.5 — 11 juin 2026 — Correctifs audit Charleville-Mézières 26F17
 
 Audit déclenché par les résultats décevants de l'AO Charleville-Mézières (traité sur la v3.6.2

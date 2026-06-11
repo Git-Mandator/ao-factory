@@ -1,6 +1,6 @@
 ---
 name: ao-response-factory
-version: "3.6.5"
+version: "3.6.6"
 domain: AO_FACTORY
 language: fr
 role: orchestrateur
@@ -58,7 +58,7 @@ target_volume_memoire:
   pages_docx_estimees: "25-35"
 ---
 
-# Skill : AO Response Factory — Orchestrateur Maître v3.6.5
+# Skill : AO Response Factory — Orchestrateur Maître v3.6.6
 
 Ce skill industrialise la chaîne complète : **DCE → Analyse → GO/NO GO → Matrice → Mémoire → Annexes → DQE → Admin → QA → Remise.**
 
@@ -165,6 +165,9 @@ Phase 4 — Mémoire technique       → a07-writer (DIRECT)    → MEMOIRE_TECH
 Phase 4bis — Production annexes   → ao-annexes-factory     → remise/Annexes/Annexe_A...K.docx
             + ao-visuels-factory   (organigramme, Gantt, etc.)
    ↓                                                          ⛔ chaque annexe citée DOIT exister
+   ↓                                                          ⛔ NON DIFFÉRABLE — les 9 annexes types ne
+   ↓                                                          dépendent d'aucun arbitrage humain ; seule
+   ↓                                                          une annexe à donnée manquante passe en 🔴
 Phase 5 — DQE & Pricing           → a06-project-manager    → DQE_PRICING.xlsx + PRICING_ALERTS.md
    ↓
 Phase 6 — Admin                   → a03-evidence-librarian → ADMIN_CHECKLIST.md
@@ -289,7 +292,7 @@ Lire `10_GEOLOC_SYSTEMS_CORE/skills/telematics-expert/SKILL.md` pour les argumen
 ## 🎯 FORMAT DE DÉMARRAGE
 
 ```
-🏭 AO RESPONSE FACTORY v3.6.5 — DÉMARRAGE
+🏭 AO RESPONSE FACTORY v3.6.6 — DÉMARRAGE
 
 📋 VÉRIFICATION DCE — [RÉFÉRENCE MARCHÉ si connue]
 

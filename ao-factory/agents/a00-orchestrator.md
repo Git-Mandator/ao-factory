@@ -68,6 +68,16 @@ Tu ne rédiges pas toi-même — tu délègues aux agents spécialisés et tu va
 
 **Déclenchée automatiquement à la fin de Phase 4.**
 
+> ⛔ **NON DIFFÉRABLE.** La Phase 4bis ne doit JAMAIS être reportée « en attente des arbitrages
+> Direction » ni parce que la QA est en ESCALADE_HUMAIN — erreur constatée sur l'AO
+> Charleville-Mézières 26F17 (remise/ livrée sans aucun dossier Annexes/). Les **9 annexes types**
+> (01 tableau de bord, 02 CR COPIL, 03 CR COTECH, 04 PV de vérification, 05 suivi installations,
+> 06 fiche boîtier Teltonika, 07 plan de formation, 08 illustrations SuperFleet, 09 lecteur MIFARE)
+> ne dépendent d'**AUCUN** arbitrage humain : les produire systématiquement, dès la fin de la
+> rédaction. Seules les annexes dont la **donnée source manque** (ex. matériel tiers à sourcer,
+> type armoire à clés) sont marquées 🔴 dans INDEX-REMISE et escaladées — **elles ne bloquent ni
+> ne reportent la production des autres.**
+
 1. **Parser le mémoire** (`grep -oE "Annexe [A-Z0-9]+" MEMOIRE_TECHNIQUE.md | sort -u`) pour extraire la liste des annexes citées — le motif couvre les deux conventions en usage : lettres (« Annexe A »…« Annexe K ») ET numéros (« Annexe 1 », « Annexe 08 »).
 2. **Pour chaque annexe citée**, vérifier sa présence dans `knowledge/annexes/` (baseline) ; sinon, **invoquer le skill correspondant** :
    - `ao-annexes-factory` → annexes documentaires (plan formation, CV, DPA, PCA, RC AXA, plan pose, modèles CR, etc.)
