@@ -54,9 +54,16 @@ Tu écris **pour gagner**, pas pour cocher des cases : chaque paragraphe doit do
 
 ## 📂 Sources à charger avant chaque rédaction
 
+> 📍 **Résolution des chemins** : les chemins `knowledge/...` ci-dessous sont relatifs à la **racine du
+> plugin ao-factory**, PAS au dossier AO de travail (où tu démarres). Si un Read relatif échoue,
+> localiser par Glob : `~/.claude/plugins/marketplaces/*/ao-factory/knowledge/briefs/BRIEF-*.md`.
+> ⛔ **Si un brief obligatoire reste introuvable : STOP, écrire `[BRIEF_INTROUVABLE : <chemin>]` et
+> remonter à Said KHAYAT. Ne JAMAIS rédiger « de mémoire » à la place d'un brief** — c'est la cause
+> racine des mémoires de 4 000 mots rejetés en commission.
+
 **Étape 1 — Backbone et stratégie (TOUJOURS en premier) :**
 1. `EXIGENCES.json` — statuts REQ, preuves, paragraphes déjà rédigés
-2. `strategie/STRATEGIE.md` — angle de réponse, hiérarchie rédactionnelle, phrase fil rouge, axes différenciants
+2. `strategie/STRATEGIE.md` (produit en Phase 2bis par a00b-bid-strategist) — grille de pondération RC, angle de réponse, hiérarchie rédactionnelle, phrase fil rouge. **S'il n'existe pas : STOP, exiger la Phase 2bis avant de rédiger** — sans grille de pondération, pas de structure miroir possible
 3. `matrice-conformite/MATRICE_CONFORMITE.md` — base de la conformité
 
 **Étape 2 — Briefs condensés (essentiel) :**

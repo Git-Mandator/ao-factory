@@ -1,6 +1,6 @@
 ---
 name: ao-response-factory
-version: "3.6.4"
+version: "3.6.5"
 domain: AO_FACTORY
 language: fr
 role: orchestrateur
@@ -12,8 +12,7 @@ description: >
   QA finale, production des .docx remise. Point d'entrée OBLIGATOIRE pour tout AO — ne jamais
   appeler bid-manager ou cctp-analyzer directement sans passer par ce skill en premier.
   Déclencher dès qu'un appel d'offres, marché public, DCE, consultation ou BOAMP est mentionné.
-sop_reference: SOP_AO_RESPONSE_FACTORY.md
-sop_phases: [0, 1, 2, 3, 4, "4bis", 5, 6, 7, "7bis"]
+sop_phases: [0, 1, 2, "2bis", 3, 4, "4bis", 5, 6, 7, "7bis"]
 output_formats:
   default: docx
   intermediate: md+json
@@ -38,7 +37,7 @@ knowledge_base:
   - knowledge/methodologies/delais-engagements-ao.md
 delegates_to:
   - a01-dce-analyst       # Phases 0-2 — Analyse DCE + GO/NO GO
-  - a00b-bid-strategist   # Pré-Phase 3 — Stratégie de réponse
+  - a00b-bid-strategist   # Phase 2bis — Stratégie de réponse + grille de pondération RC (OBLIGATOIRE avant Phase 3)
   - a02-requirements-miner # Phase 3 — Matrice fonctionnelle
   - a03-evidence-librarian # Phases 3, 4bis, 6 — Preuves + annexes
   - a04-compliance-lead   # Phase 3 — Volet RGPD/SSI du mémoire
@@ -55,17 +54,34 @@ phases_detail:
 target_volume_memoire:
   mots_min: 6000
   mots_max: 8000
-  sections_cible: 14
+  sections_cible: "miroir grille RC — 1 section par sous-critère noté (cf. BRIEF-structure-memoire-gagnant)"
   pages_docx_estimees: "25-35"
 ---
 
-# Skill : AO Response Factory — Orchestrateur Maître v3.6.3
+# Skill : AO Response Factory — Orchestrateur Maître v3.6.5
 
 Ce skill industrialise la chaîne complète : **DCE → Analyse → GO/NO GO → Matrice → Mémoire → Annexes → DQE → Admin → QA → Remise.**
 
 > ⚠️ **Point d'entrée unique** pour tout nouveau marché public.
 > Ne pas appeler `bid-manager` ou `cctp-analyzer` directement sans passer par ce skill.
 > Pour le détail de chaque phase, lire les fichiers dans `phases/`.
+
+---
+
+## 📍 RÉSOLUTION DES CHEMINS `knowledge/` (règle pour TOUS les agents — lire avant toute phase)
+
+> ⛔ **Les chemins `knowledge/...`, `phases/...` et `templates-docx/...` sont relatifs à la RACINE DU PLUGIN,
+> PAS au dossier AO de travail.** Les agents délégués démarrent dans le dossier du marché : un Read
+> relatif y échouera systématiquement.
+
+1. **Racine plugin** = le dossier qui contient `.claude-plugin/plugin.json` (ce SKILL.md est dans
+   `<racine>/skills/ao-response-factory/`). L'orchestrateur transmet ce chemin absolu à chaque agent délégué.
+2. **Si un fichier `knowledge/` est introuvable en relatif** → le localiser par Glob :
+   `~/.claude/plugins/marketplaces/*/ao-factory/knowledge/briefs/BRIEF-*.md` (plugin installé)
+   puis `~/Documents/ao-factory-final/ao-factory/knowledge/**` (source de développement).
+3. **⛔ INTERDIT de rédiger sans les briefs.** Si un brief obligatoire reste introuvable après l'étape 2 :
+   **STOP**, signaler `[BRIEF_INTROUVABLE : <chemin>]` à Said KHAYAT. Ne JAMAIS improviser le contenu
+   d'un brief de mémoire — c'est la cause racine des mémoires de 4 000 mots rejetés.
 
 ---
 
@@ -76,15 +92,15 @@ Ce skill industrialise la chaîne complète : **DCE → Analyse → GO/NO GO →
 | Métrique | Cible | Plancher absolu | Référence |
 |---|---|---|---|
 | **Volume corps mémoire** | **6 000 à 8 000 mots** | **5 500 mots minimum** | Étalon SPL EBR v3.0 = 7 487 mots |
-| **Sections de niveau ##** | **14** (cf. structure cible) | 12 minimum | Cf. a07-writer §"Structure cible" |
-| **Tableaux structurés** | 30+ (matrice SSI, API, annexes, équipe, planning, etc.) | 20 minimum | Étalon v3.6.2 = ~200 |
+| **Structure** | **Miroir grille RC** : 1 section par sous-critère noté, points dans le titre | Ossature invariante (propos liminaire, compréhension, synthèse, annexes) | Cf. a07-writer §"Structure — MIROIR EXACT" + BRIEF-structure-memoire-gagnant |
+| **Tableaux structurés** | 30+ (matrice SSI, API, annexes, équipe, planning, etc.) | 20 minimum | Garges 26.065 (49,5/50) |
 | **Chiffres engagés** (SLA, délais, %, volumes) | 100+ | 80 minimum | Étalon v3.6.2 = ~120 |
 | **Citations CCP/RC** (renvois articles) | 40+ | 30 minimum | Étalon v3.6.2 = ~50 |
 | **Intervenants nommés** | **7** (Said, Mustapha, Clément, Walid, Samia, Smaël, Chaima) | 5 minimum | Cf. BRIEF-profil-geoloc + équipe-projet-detaillee |
 
 **⛔ Si le mémoire produit fait moins de 5 500 mots, ce n'est PAS un mémoire d'AO public sérieux — c'est un brouillon. La QA Phase 7 doit refuser GO_DEPOT.**
 
-**a07-writer DOIT charger TOUS les 11 briefs de la `knowledge_base` ci-dessus avant rédaction.** L'usage du seul `BRIEF-profil-geoloc.md` (par défaut) produit un mémoire de 4 000 à 5 000 mots = REJETÉ.
+**a07-writer DOIT charger TOUS les 12 briefs de la `knowledge_base` ci-dessus avant rédaction** (en les résolvant depuis la racine du plugin — cf. §Résolution des chemins). L'usage du seul `BRIEF-profil-geoloc.md` (par défaut) produit un mémoire de 4 000 à 5 000 mots = REJETÉ.
 
 ---
 
@@ -125,15 +141,20 @@ Statut : [PRÊT À DÉMARRER | ⛔ ARRÊT — documents manquants]
 
 ---
 
-## 🔄 WORKFLOW GLOBAL (10 phases avec 4bis et 7bis)
+## 🔄 WORKFLOW GLOBAL (11 phases avec 2bis, 4bis et 7bis)
 
 ```
 ⛔ Phase 0 — Vérification DCE
    ↓
 Phase 1 — Analyse DCE             → a01-dce-analyst        → SYNTH_AO.md + EXIGENCES.json
-   ↓                                                          (cible : 150-300 REQ extraites)
+   ↓                                                          (cible REQ proportionnée au DCE :
+   ↓                                                           ~50-100 petit marché, 150-300 gros DCE)
 Phase 2 — GO / NO GO              → a01-dce-analyst        → GONOGO.json  (STOP si NO_GO)
    ↓
+Phase 2bis — Stratégie de réponse → a00b-bid-strategist    → STRATEGIE.md
+   ↓                                                          ⛔ OBLIGATOIRE : grille de pondération RC
+   ↓                                                          (critères + sous-critères + points) extraite
+   ↓                                                          ou estimée — a07 en dépend (structure miroir)
 Phase 3 — Matrice conformité      → a02-requirements-miner → MATRICE_CONFORMITE.md
           + a04-compliance-lead     (volet SSI/RGPD)
           + a05-telematics-architect (volet matériel)
@@ -172,11 +193,12 @@ Remise — Production .docx         → skill docx             → Dossier remis
 | Phase | Agent producteur (appelé directement) | Livrable | Briefs obligatoires à charger |
 |---|---|---|---|
 | 0-2 | `a01-dce-analyst` | SYNTH_AO.md + EXIGENCES.json + GONOGO.json | (analyse pure du DCE) |
+| **2bis stratégie** | **`a00b-bid-strategist`** | **STRATEGIE.md (grille pondération RC + angle + hiérarchie)** | BRIEF-structure-memoire-gagnant, BRIEF-profil-geoloc |
 | 3 fonctionnel | `a02-requirements-miner` | volet fonctionnel matrice | BRIEF-superfleet-fonctionnel |
 | 3 SSI/RGPD | `a04-compliance-lead` | volet sécurité matrice + §4 mémoire | BRIEF-securite-rgpd, BRIEF-ssi-matrice-33items |
 | 3 matériel | `a05-telematics-architect` | volet hardware matrice + §3 mémoire | boitiers-teltonika-detail, **BRIEF-teltonika-wiki** (60 AVL IDs), BRIEF-comparatif-natif-vs-boitier |
 | 3 preuves | `a03-evidence-librarian` | annexes/PLAN_ANNEXES.md | INDEX-ANNEXES |
-| **4 rédaction** | **`a07-writer`** | **MEMOIRE_TECHNIQUE.md (6000-8000 mots)** | **TOUS les 11 briefs + KB enrichie** |
+| **4 rédaction** | **`a07-writer`** | **MEMOIRE_TECHNIQUE.md (6000-8000 mots, miroir grille RC)** | **TOUS les 12 briefs + KB enrichie + STRATEGIE.md (Phase 2bis)** |
 | 4bis annexes | skills `ao-annexes-factory` + `ao-visuels-factory` | remise/Annexes/A→K | (basés sur templates) |
 | 5 DQE | `a06-project-manager` | DQE_PRICING.xlsx | BRIEF-cartographie-parc (volumes) |
 | 6 admin | `a06-project-manager` + `a03-evidence-librarian` | ADMIN_CHECKLIST.md | INDEX-ANNEXES |
@@ -220,7 +242,8 @@ Remise — Production .docx         → skill docx             → Dossier remis
 
 **Charte graphique :** Toujours appliquer la charte Geoloc officielle (geoloc-brand v1.0) :
 - Police : **Calibri** — Couleur principale : **`#1565C0`** — Fond tableaux pairs : **`#F1F5F9`**
-- Lire `/mnt/.skills/skills/docx/SKILL.md` AVANT tout script JS
+- Lire le skill `docx` (anthropic-skills:docx) AVANT tout script JS — s'il est indisponible dans
+  l'environnement, utiliser directement `docx` npm v9+ avec la palette geoloc-brand ci-dessus
 
 ### 🔗 Règle cross-domain — Accès à GEOLOC_SYSTEMS_CORE (Phase 3 uniquement)
 
@@ -254,8 +277,8 @@ Lire `10_GEOLOC_SYSTEMS_CORE/skills/telematics-expert/SKILL.md` pour les argumen
 | Taux de GO | > 60% des marchés analysés | — |
 | Taux de succès | > 40% des candidatures | — |
 | Délai de production | < 3 jours ouvrés (GO → QA OK) | — |
-| **Volume mémoire produit** | **6000-8000 mots** | **5500 mots — rejet sous ce seuil** |
-| **Sections mémoire** | **14** | **12 minimum** |
+| **Volume mémoire produit** | **6000-8000 mots** | **5500 mots — rejet sous ce seuil (compté en QA)** |
+| **Structure miroir grille RC** | **1 section par sous-critère noté, points dans le titre** | **100% (hard)** |
 | Couverture CCTP | > 85% | 75% |
 | Items A_CONFIRMER en QA finale | < 5% des REQ | 10% max |
 | Occurrences FleetWatcher en QA | 0 | 0 (hard) |
@@ -266,7 +289,7 @@ Lire `10_GEOLOC_SYSTEMS_CORE/skills/telematics-expert/SKILL.md` pour les argumen
 ## 🎯 FORMAT DE DÉMARRAGE
 
 ```
-🏭 AO RESPONSE FACTORY v3.6.3 — DÉMARRAGE
+🏭 AO RESPONSE FACTORY v3.6.5 — DÉMARRAGE
 
 📋 VÉRIFICATION DCE — [RÉFÉRENCE MARCHÉ si connue]
 
@@ -277,17 +300,28 @@ Lire `10_GEOLOC_SYSTEMS_CORE/skills/telematics-expert/SKILL.md` pour les argumen
 
 Statut : [PRÊT À DÉMARRER | DOCUMENTS MANQUANTS]
 
-🎯 CIBLE LIVRABLE : mémoire 6000-8000 mots, 14 sections, 100+ chiffres engagés, 40+ citations CCP/RC,
-   7 intervenants nommés, annexes A→K présentes physiquement, QA GO_DEPOT.
+🎯 CIBLE LIVRABLE : mémoire 6000-8000 mots, structure miroir grille RC (1 section par sous-critère noté),
+   100+ chiffres engagés, 40+ citations CCP/RC, 7 intervenants nommés,
+   annexes citées présentes physiquement, QA GO_DEPOT.
 
 ⚙️ Phase 1 en cours — Activation a01-dce-analyst (DIRECT, sans wrapper)...
 ```
 
 ---
 
+## 🔧 NOTES DE RELEASE v3.6.5 (audit Charleville-Mézières 26F17)
+
+**Correctifs v3.6.5 :**
+1. ✅ Règle de résolution des chemins `knowledge/` (racine plugin + fallback Glob + STOP si brief introuvable)
+2. ✅ Phase 2bis (a00b-bid-strategist) intégrée au séquencement — STRATEGIE.md et grille de pondération garantis avant rédaction
+3. ✅ Comptage de mots et planchers de forme implémentés dans a08-qa-red-team (rejet < 5 500 mots effectif)
+4. ✅ Contradiction « 14 sections » vs « miroir grille RC » levée — le miroir RC fait foi partout
+5. ✅ `phases/*.md` réalignés (agents producteurs au lieu des wrappers, sources KB réelles)
+6. ✅ Annexe 08 illustrations : version éditable .docx restaurée
+
 ## 🔧 NOTES DE RELEASE v3.6.3 (correction régression volume mémoire)
 
-**Problème détecté en v3.6.0–v3.6.2** : ce skill déléguait au wrapper `bid-manager` pour la rédaction (Phase 4). Le wrapper ne chargeait pas les 11 briefs spécialisés et n'avait pas d'instruction de volume cible — résultat : mémoires de **4 000-5 000 mots** (= pires que v3.5) au lieu des **15 000-16 000 mots** attendus.
+**Problème détecté en v3.6.0–v3.6.2** : ce skill déléguait au wrapper `bid-manager` pour la rédaction (Phase 4). Le wrapper ne chargeait pas les 11 briefs spécialisés et n'avait pas d'instruction de volume cible — résultat : mémoires de **4 000-5 000 mots** (= pires que v3.5) au lieu des **6 000-8 000 mots** attendus.
 
 **Correctifs v3.6.3 :**
 1. ✅ Délégation directe aux agents `a01-a08` (plus de wrappers intermédiaires)

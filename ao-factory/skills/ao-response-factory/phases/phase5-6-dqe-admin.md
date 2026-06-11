@@ -4,7 +4,7 @@
 
 ## 💰 PHASE 5 — DQE & Pricing
 
-> Rôle activé : **Contrôleur Pricing/DQE** → skill `bid-manager` section DQE
+> Agent producteur : **`a06-project-manager`** (appel DIRECT — le wrapper `bid-manager` n'est plus invoqué par l'orchestrateur depuis la v3.6.3)
 
 ### Contrôles obligatoires
 
@@ -23,7 +23,7 @@
 
 ## 📂 PHASE 6 — Vérification Administrative
 
-> Rôle activé : **Expert conformité administrative** → skill `evidence-builder`
+> Agents producteurs : **`a06-project-manager`** + **`a03-evidence-librarian`** (appel DIRECT — le wrapper `evidence-builder` n'est plus invoqué par l'orchestrateur depuis la v3.6.3)
 
 ### Checklist standard Geoloc Systems
 

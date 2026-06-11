@@ -108,7 +108,7 @@
 ```
 Phase 0  → Créé par dce-ingestion : meta + squelette vide
 Phase 2  → Rempli par a02-requirements-miner : toutes les exigences extraites
-Phase 2b → Enrichi par a00b-bid-strategist : ponderation + strategie
+Phase 2bis → Enrichi par a00b-bid-strategist : ponderation + strategie (produit aussi STRATEGIE.md)
 Phase 3  → Enrichi par a03-evidence-librarian : preuves par REQ
 Phase 3b → Enrichi par a04-compliance-lead : statuts RGPD / SECURITE
 Phase 4  → Enrichi par a07-writer : paragraphe_memoire par REQ

@@ -43,6 +43,7 @@ Tu ne rédiges pas toi-même — tu délègues aux agents spécialisés et tu va
 | 0 | A01 | Inventaire DCE | RC + CCTP présents |
 | 1 | A01 | SYNTH_AO.md + EXIGENCES.json | Document structuré |
 | 2 | A01 | GONOGO.json | Score calculé — STOP si NO_GO |
+| **2bis** | **A00b** | **STRATEGIE.md (grille de pondération RC + angle + hiérarchie rédactionnelle)** | **Grille critères/sous-critères/points extraite du RC (ou estimée avec transparence) — ⛔ Phase 4 INTERDITE sans STRATEGIE.md (a07 calque la structure miroir dessus)** |
 | 3 | A02+A03+A04+A05 | MATRICE_CONFORMITE.md | Couverture > 80% |
 | 4 | A07 | MEMOIRE_TECHNIQUE.md | Toutes sections RC couvertes |
 | **4bis** | **skill `ao-annexes-factory` + `ao-visuels-factory`** | **`remise/Annexes/*.docx/pdf` (A→K selon DCE)** | **Au minimum A architecture, B Teltonika, C matrice SSI, D plan pose, E CV équipe, G illustrations, H formation, K AXA** |
@@ -56,6 +57,8 @@ Tu ne rédiges pas toi-même — tu délègues aux agents spécialisés et tu va
 
 - Ne jamais passer à la Phase N+1 sans livrable Phase N validé
 - NO_GO à la Phase 2 → archiver et informer Said KHAYAT — ne pas continuer
+- **Phase 2bis OBLIGATOIRE** : activer A00b dès le GO validé. Aucune rédaction (Phase 4) sans `STRATEGIE.md` contenant la grille de pondération du RC — c'est elle qui donne le sommaire miroir du mémoire
+- **Chemins `knowledge/`** : transmettre à chaque agent délégué le chemin ABSOLU de la racine du plugin (les agents démarrent dans le dossier AO — un chemin relatif `knowledge/...` y échoue ; cf. SKILL.md §Résolution des chemins)
 - **Phase 4bis OBLIGATOIRE** : à la fin de la rédaction (Phase 4), parser le mémoire pour lister les annexes citées (« cf. Annexe A », « voir Annexe X »), puis activer `ao-annexes-factory` et `ao-visuels-factory` pour produire chaque annexe manquante. Renseigner `remise/Annexes/INDEX-REMISE.md` avec statut 🟢 produit / 🟠 à anonymiser / 🔴 manquant.
 - QA BLOQUANT à la Phase 7 → lister corrections, ne pas produire remise/. **La QA vérifie que chaque mention « Annexe X » du mémoire pointe sur un fichier réel dans `remise/Annexes/`.**
 - Journaliser chaque décision avec horodatage et agent responsable
@@ -65,7 +68,7 @@ Tu ne rédiges pas toi-même — tu délègues aux agents spécialisés et tu va
 
 **Déclenchée automatiquement à la fin de Phase 4.**
 
-1. **Parser le mémoire** (`grep -oE "Annexe [A-Z]" MEMOIRE_TECHNIQUE.md | sort -u`) pour extraire la liste des annexes citées.
+1. **Parser le mémoire** (`grep -oE "Annexe [A-Z0-9]+" MEMOIRE_TECHNIQUE.md | sort -u`) pour extraire la liste des annexes citées — le motif couvre les deux conventions en usage : lettres (« Annexe A »…« Annexe K ») ET numéros (« Annexe 1 », « Annexe 08 »).
 2. **Pour chaque annexe citée**, vérifier sa présence dans `knowledge/annexes/` (baseline) ; sinon, **invoquer le skill correspondant** :
    - `ao-annexes-factory` → annexes documentaires (plan formation, CV, DPA, PCA, RC AXA, plan pose, modèles CR, etc.)
    - `ao-visuels-factory` → annexes graphiques (organigramme, carte proximité, Gantt déploiement, infographie logistique)

@@ -1,6 +1,8 @@
 # PHASES 1 & 2 — Analyse DCE + GO / NO GO
 
-> Rôle activé : **Analyste AO** + **Décideur GO/NO GO** → skill `cctp-analyzer`
+> Agent producteur : **`a01-dce-analyst`** (appel DIRECT — le wrapper `cctp-analyzer` n'est plus invoqué par l'orchestrateur depuis la v3.6.3)
+> Après le GO (Phase 2) → enchaîner la **Phase 2bis** : `a00b-bid-strategist` produit `STRATEGIE.md`
+> (grille de pondération RC + angle + hiérarchie) — prérequis bloquant de la Phase 4.
 
 ---
 

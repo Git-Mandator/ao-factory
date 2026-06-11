@@ -1,7 +1,8 @@
 # PHASE 3 — Matrice de Conformité ⭐ CŒUR DU SYSTÈME
 
-> Rôles activés : Expert SuperFleet, Expert Télématique, Expert RSE, Expert Sécurité/RGPD
-> Skills : `bid-manager` + `rgpd-security` + cross-domain `telematics-expert`
+> Agents producteurs (appel DIRECT) : **`a02-requirements-miner`** (fonctionnel) + **`a04-compliance-lead`**
+> (SSI/RGPD) + **`a05-telematics-architect`** (matériel) + **`a03-evidence-librarian`** (preuves)
+> — les wrappers `bid-manager`/`rgpd-security` ne sont plus invoqués par l'orchestrateur depuis la v3.6.3
 
 > La qualité de la matrice détermine directement la note technique obtenue.
 > Chaque exigence `REQ-XXX` doit être traitée sans exception.
@@ -19,16 +20,14 @@
 
 ## Sources par domaine d'exigence
 
-| Domaine CCTP | Source principale | Source secondaire |
+| Domaine CCTP | Source principale (chemins relatifs à la racine du plugin) | Source secondaire |
 |---|---|---|
-| Géolocalisation, tableau de bord, rapports | `superfleet-catalogue-fonctionnel.md` | `analyse-memoire-25-60.md` |
-| Matériel GPS, boîtiers, CAN-BUS, installation | `teltonika-product-capabilities-ao.md` | `profil-geoloc-systems.md` |
-| Sécurité, RGPD, hébergement, SLA, PCA | `superfleet-fiche-technique-securite-conformite.md` | skill `rgpd-security` |
-| RSE, éco-conduite, CO2, ZFE, Crit'Air | `superfleet-catalogue-fonctionnel.md` (Module 3) | `profil-geoloc-systems.md` (Section RSE) |
-| Équipe, références, délais, formation | `profil-geoloc-systems.md` | `analyse-memoire-25-60.md` |
-| Annexes et preuves à joindre | `INDEX-ANNEXES.md` | — |
-
-**Pour les arguments hardware Teltonika :** consulter cross-domain → `10_GEOLOC_SYSTEMS_CORE/skills/telematics-expert/SKILL.md`
+| Géolocalisation, tableau de bord, rapports | `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` | `knowledge/briefs/BRIEF-structure-memoire-gagnant.md` |
+| Matériel GPS, boîtiers, CAN-BUS, installation | `knowledge/references/boitiers-teltonika-detail.md` | `knowledge/briefs/BRIEF-teltonika-wiki.md` (60 AVL IDs) + `BRIEF-comparatif-natif-vs-boitier.md` |
+| Sécurité, RGPD, hébergement, SLA, PCA | `knowledge/briefs/BRIEF-securite-rgpd.md` | `knowledge/briefs/BRIEF-ssi-matrice-33items.md` |
+| RSE, éco-conduite, CO2, ZFE, Crit'Air | `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` (modules Transition énergétique / éco-conduite) | `knowledge/briefs/BRIEF-coach-embarque.md` |
+| Équipe, références, délais, formation | `knowledge/briefs/BRIEF-profil-geoloc.md` | `knowledge/company/` + `knowledge/methodologies/delais-engagements-ao.md` |
+| Annexes et preuves à joindre | `knowledge/annexes/INDEX-ANNEXES.md` | — |
 
 ## Format de la matrice
 

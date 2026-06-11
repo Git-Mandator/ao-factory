@@ -1,49 +1,63 @@
 # PHASE 4 — Rédaction du Mémoire Technique
 
-> Rôle activé : **Rédacteur technique** → skill `bid-manager`
+> Agent producteur : **`a07-writer`** (appel DIRECT — ⛔ ne JAMAIS passer par le wrapper `bid-manager`,
+> cause de la régression v3.6.0-3.6.2 : mémoires de 4 000-5 000 mots rejetés)
 
-### Règle d'or
+### Règle d'or — structure MIROIR de la grille de notation
 
-> Chaque section du mémoire répond à **un critère de notation identifié dans le RC**.
-> Le titre de chaque section reprend **les mots exacts** du RC ou CCTP.
+> Le mémoire calque **sous-critère par sous-critère, dans l'ordre EXACT du RC**, avec la pondération
+> en points affichée dans chaque titre. Le sommaire vient de `STRATEGIE.md` (Phase 2bis), jamais d'une
+> structure générique. Détail complet : `knowledge/briefs/BRIEF-structure-memoire-gagnant.md`
+> (brief MAÎTRE — à lire EN PREMIER) et a07-writer §« Structure — MIROIR EXACT ».
 
 ---
 
-## Structure standard CMT Geoloc
+## Prérequis (bloquants)
 
-1. Compréhension du besoin et contexte acheteur
-2. Présentation de la solution SuperFleet (réponse fonctionnelle)
-3. Infrastructure technique et sécurité (hébergement, RGPD, SLA)
-4. Matériel embarqué et déploiement terrain
-5. Méthodologie de déploiement (5 phases)
-6. Organisation et moyens humains dédiés
-7. Formation et accompagnement des utilisateurs
-8. SLA, support et continuité de service
-9. Références clients similaires
-10. RSE et transition énergétique
+| Prérequis | Produit par | Si absent |
+|---|---|---|
+| `STRATEGIE.md` (grille pondération RC + hiérarchie) | a00b — Phase 2bis | ⛔ STOP — lancer la Phase 2bis |
+| `MATRICE_CONFORMITE.md` | a02+a04+a05 — Phase 3 | ⛔ STOP |
+| `EXIGENCES.json` à jour | a01 — Phase 1 | ⛔ STOP |
+| Les 12 briefs `knowledge/briefs/` chargés | racine plugin (cf. SKILL.md §Résolution des chemins) | ⛔ STOP — `[BRIEF_INTROUVABLE]`, jamais improviser |
 
-## Sources par section
+## Ossature (rappel — cf. BRIEF-structure-memoire-gagnant)
 
-| Section mémoire | Source à consulter |
+```
+[Page de garde] + [Sommaire reprenant l'ordre RC]
+1. Propos liminaire (signé Said KHAYAT)
+2. Compréhension du besoin de [ACHETEUR]
+3 → N. UNE SECTION PAR SOUS-CRITÈRE NOTÉ  ← cœur, 60-70 % du volume, ordre = grille RC
+N+1. Synthèse des engagements de service
+N+2. Liste des annexes jointes
+```
+
+Dans chaque section notée, les 4 patterns obligatoires : engagement d'ouverture, tableau de
+couverture point par point du CCTP, illustration/capture annotée (produite en Phase 4bis),
+clôture « Preuve / Annexe : Annexe X ».
+
+## Sources par contenu (chemins relatifs à la racine du plugin)
+
+| Contenu | Source |
 |---|---|
-| 1. Compréhension | `SYNTH_AO.md` + contexte acheteur |
-| 2. Solution SuperFleet | `superfleet-catalogue-fonctionnel.md` + MATRICE_CONFORMITE |
-| 3. Infrastructure / Sécurité | `superfleet-fiche-technique-securite-conformite.md` |
-| 4. Matériel terrain | `teltonika-product-capabilities-ao.md` |
-| 5. Méthodologie | `profil-geoloc-systems.md` (Sections 7–8) |
-| 6. Équipe | `profil-geoloc-systems.md` (Section 4) |
-| 7. Formation | `profil-geoloc-systems.md` (Section 9) + Annexe 07 |
-| 8. SLA / Support | `superfleet-fiche-technique-securite-conformite.md` (Sections 6–8) |
-| 9. Références | `profil-geoloc-systems.md` (Sections 3, 5) |
-| 10. RSE | `profil-geoloc-systems.md` (Section 10) |
+| Structure, forme, ton gagnants | `knowledge/briefs/BRIEF-structure-memoire-gagnant.md` ⭐ |
+| Entreprise, équipe, références, phrases types | `knowledge/briefs/BRIEF-profil-geoloc.md` + `knowledge/company/` |
+| Modules SuperFleet, specs | `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` |
+| Sécurité, RGPD, hébergement, SLA | `knowledge/briefs/BRIEF-securite-rgpd.md` + `BRIEF-ssi-matrice-33items.md` |
+| Matériel embarqué, AVL IDs, accessoires | `knowledge/references/boitiers-teltonika-detail.md` + `knowledge/briefs/BRIEF-teltonika-wiki.md` |
+| API, cartographie parc, coach, dépose tiers, clôture | briefs ciblés correspondants (cf. a07-writer Étape 3) |
+| Annexes disponibles | `knowledge/annexes/INDEX-ANNEXES.md` |
+| Délais contractuels capitalisés | `knowledge/methodologies/delais-engagements-ao.md` |
 
 ## Règles rédactionnelles
 
-- 150–300 mots par section, orientés critères RC
-- Chaque affirmation suivie d'une preuve ou d'une référence annexe
-- Titres de sections = mots exacts du RC (aide au scoring)
-- Pondération respectée : sections les plus longues = critères les plus pondérés
+- **Volume total : 6 000-8 000 mots** — ⛔ sous 5 500 mots = brouillon rejeté en QA (contrôle chiffré a08 §6bis)
+- Sections les plus longues = sous-critères les plus pondérés (60-70 % du volume sur les sections notées)
+- Chaque affirmation suivie d'une preuve, d'un chiffre ou d'un renvoi annexe
+- Titres = mots exacts du RC/CCTP + points du sous-critère
+- Mettre à jour `EXIGENCES.json` (champ `paragraphe_memoire`) au fil des sections
 
 ## Livrable
 
-Produire `memoire-technique/MEMOIRE_TECHNIQUE.md`
+Produire `memoire-technique/MEMOIRE_TECHNIQUE.md`, puis enchaîner **Phase 4bis** (annexes + visuels —
+chaque « Annexe X » citée doit exister physiquement dans `remise/Annexes/`).

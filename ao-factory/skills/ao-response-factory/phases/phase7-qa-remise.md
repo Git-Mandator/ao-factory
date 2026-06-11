@@ -1,7 +1,8 @@
 # PHASE 7 — QA Finale + Production Remise
 
-> Rôle activé : **Vérificateur QA final** → `bid-manager` + `evidence-builder`
+> Agent producteur : **`a08-qa-red-team`** (appel DIRECT — les wrappers `bid-manager`/`evidence-builder` ne sont plus invoqués par l'orchestrateur depuis la v3.6.3)
 > ⛔ Phase bloquante — le dossier ne peut pas être soumis tant que la QA n'est pas 100% verte.
+> Si bloquants corrigeables → **Phase 7bis** (boucle a07↔a08, max 3 itérations — cf. a00-orchestrator).
 
 ---
 
@@ -20,8 +21,9 @@
 - [ ] CAN-BUS mentionné uniquement avec condition de compatibilité véhicule
 
 ### Conformité formelle
-- [ ] Tous les critères du RC ont une section dédiée dans le mémoire
+- [ ] Tous les critères du RC ont une section dédiée dans le mémoire (structure miroir grille RC)
 - [ ] Pondération des critères respectée (sections les plus longues = critères les plus pondérés)
+- [ ] **Volume du mémoire ≥ 5 500 mots** (cible 6 000-8 000) — compté avec `wc -w`, pas estimé (cf. a08 §6bis)
 - [ ] Toutes les annexes citées dans le mémoire sont incluses dans le dossier
 - [ ] Format de fichier conforme aux exigences RC (PDF, Word, taille max, etc.)
 - [ ] Date limite de remise vérifiée et respectée
@@ -83,8 +85,9 @@ REPONSE/
 ### Procédure de production des .docx
 
 > ⚠️ **CHARTE OFFICIELLE v1.0 (fév. 2026) — geoloc-brand skill**
-> Lire `/mnt/.skills/skills/docx/SKILL.md` AVANT d'écrire le moindre script.
-> NE PLUS utiliser l'ancienne palette `#1565C0 / #4285F4 / #F1F5F9` ni la police Arial.
+> Lire le skill `docx` (anthropic-skills:docx) AVANT d'écrire le moindre script.
+> NE PLUS utiliser l'ancienne palette `#1F3864 / #2E75B6 / #D6E4F7` ni la police Arial
+> (la palette officielle est `#1565C0 / #F1F5F9` + Calibri — cf. bloc ci-dessous).
 
 ```bash
 # 1. Scripts JS (bibliothèque docx npm v9+ — installée globalement)
@@ -108,17 +111,16 @@ REPONSE/
 # 2. Générer et valider
 node gen_memoire.js
 node gen_dqe_admin.js
-python3 "/mnt/.skills/skills/docx/scripts/office/validate.py" "MEMOIRE_TECHNIQUE.docx"
-python3 "/mnt/.skills/skills/docx/scripts/office/validate.py" "DQE_PRICING.docx"
-python3 "/mnt/.skills/skills/docx/scripts/office/validate.py" "ADMIN_CHECKLIST.docx"
+# Validation : via le script validate.py du skill docx si présent dans l'environnement ;
+# sinon, ouvrir chaque .docx généré (unzip -l + relecture) avant copie dans remise/
 
-# 3. Copier dans remise/
+# 3. Copier dans remise/ (nommage selon RC — vérifier si un préfixe candidat est exigé, ex. GEOLOC_)
 cp MEMOIRE_TECHNIQUE.docx  "remise/MEMOIRE_TECHNIQUE_[ACHETEUR].docx"
 cp DQE_PRICING.docx        "remise/DQE_PRICING_[ACHETEUR].docx"
 cp ADMIN_CHECKLIST.docx    "remise/ADMIN_CHECKLIST_[ACHETEUR].docx"
-cp knowledge/annexes/INDEX-ANNEXES.md remise/LISEZ_MOI.md
 
-# 4. Créer LISEZ_MOI.md avec liste des pièces manquantes pour Said KHAYAT
+# 4. Créer remise/LISEZ_MOI.md avec la liste des pièces manquantes pour Said KHAYAT
+#    (ne JAMAIS y copier INDEX-ANNEXES.md tel quel — c'est un document interne)
 ```
 
 ### Livrables

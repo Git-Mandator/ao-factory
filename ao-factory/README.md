@@ -1,6 +1,6 @@
 # AO Factory Plugin — Geoloc Systems
 
-**Version :** 2.1.0
+**Version :** 3.6.5 — voir `CHANGELOG.md` pour l'historique complet
 **Auteur :** Said KHAYAT — Geoloc Systems
 **Domaine :** Réponses aux appels d'offres publics (télématique de flotte)
 
@@ -9,11 +9,12 @@
 ## Vue d'ensemble
 
 Ce plugin industrialise la chaîne complète de réponse aux appels d'offres publics de Geoloc Systems :
-du DCE reçu jusqu'au dossier `.docx` prêt à signer et déposer, en 8 phases structurées.
+du DCE reçu jusqu'au dossier `.docx` prêt à signer et déposer, en 11 phases structurées
+(0 → 7bis, dont 2bis stratégie, 4bis annexes/visuels et 7bis boucle QA).
 
 **Objectif :** Maximiser le score technique de Geoloc Systems à chaque consultation publique.
 
-**v2.1.0 — Nouveautés :**
+**Nouveautés historiques v2.1.0 :**
 - ✅ Skill `geoloc-brand` : charte graphique officielle SuperFleet (design system v1.0)
 - ✅ 9 annexes types bundlées (PDF réels, organisation-projet, superfleet)
 - ✅ 4 templates Word JS (`memoire_template.js`, `matrice_template.js`, `admin_template.js`, `qa_template.js`)

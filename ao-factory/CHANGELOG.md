@@ -1,5 +1,69 @@
 # CHANGELOG — AO Factory Plugin
 
+## v3.6.5 — 11 juin 2026 — Correctifs audit Charleville-Mézières 26F17
+
+Audit déclenché par les résultats décevants de l'AO Charleville-Mézières (traité sur la v3.6.2
+installée alors que la v3.6.4 existait — mémoire sans visuels ni annexes, briefs non chargés).
+
+- ✅ **Résolution des chemins `knowledge/`** : règle explicite dans SKILL.md + a07-writer — chemins
+  relatifs à la racine du plugin, fallback Glob `~/.claude/plugins/marketplaces/*/ao-factory/`,
+  STOP `[BRIEF_INTROUVABLE]` si brief absent (interdiction d'improviser). Cause racine des mémoires maigres.
+- ✅ **Phase 2bis séquencée** : `a00b-bid-strategist` intégré au workflow (SKILL.md, state machine
+  a00-orchestrator, phases/) — `STRATEGIE.md` + grille de pondération RC garantis avant la Phase 4
+  (la structure miroir en dépend). Prérequis bloquant de a07-writer.
+- ✅ **Garde-fou volume implémenté dans a08-qa-red-team** (§6bis) : `wc -w` obligatoire, BLOQUANT → LOOP_A07
+  sous 5 500 mots, planchers de forme (20 tableaux, 80 chiffres, 5 intervenants), contrôle structure
+  miroir. Ajout outil Bash à a08.
+- ✅ **Contradiction « 14 sections » vs « miroir grille RC » levée** : le miroir RC fait foi partout
+  (frontmatter, table de volume, KPIs, bannière de démarrage).
+- ✅ **`phases/*.md` réalignés** : agents producteurs au lieu des wrappers bannis (`bid-manager`,
+  `cctp-analyzer`, `evidence-builder`, `rgpd-security`), sources KB réelles (BRIEF-*) au lieu de
+  fichiers inexistants, phase4-redaction.md réécrit (doctrine miroir + prérequis bloquants),
+  contradiction de palette phase7 corrigée (l'ancienne palette est #1F3864/#2E75B6/#D6E4F7).
+- ✅ **Annexe 08 illustrations** : version éditable `.docx` restaurée (était référencée par README,
+  INDEX-ANNEXES et EXIGENCES_SCHEMA mais supprimée du paquet).
+- ✅ **Parsing annexes** : `grep "Annexe [A-Z0-9]+"` couvre lettres ET numéros (3 conventions coexistantes).
+- ✅ **Versioning réconcilié** : README 2.1.0→3.6.5, marketplace.json 3.6.2→3.6.5, bannière SKILL
+  3.6.3→3.6.5, chemins Cowork `/mnt/.skills/` remplacés par des références portables, `sop_reference`
+  mort supprimé, CHANGELOG complété (3.6.0→3.6.5 ci-dessous).
+
+## v3.6.4 — 2 juin 2026 — Structure mémoire GAGNANT (miroir grille de notation)
+
+- 🆕 **`BRIEF-structure-memoire-gagnant.md`** (brief MAÎTRE) : structure miroir RC sous-critère/points,
+  4 patterns de forme gagnants — capitalisation Garges 49,5/50 + Résidences 78 gagné.
+- 🔄 **a07-writer** : la structure générique « 14 sections » est remplacée par le calque exact de la
+  grille de notation du RC (1 section par sous-critère noté, points dans le titre).
+- 🔄 **ao-visuels-factory** : organigramme avec photos/silhouettes (fonction `avatar()`), fix polices
+  macOS (`/System/Library/Fonts/Supplemental/Arial.ttf` — accents français corrects).
+
+## v3.6.3 — 30 mai-2 juin 2026 — Correction régression volume + boucle QA
+
+- 🐛 **Fix régression v3.6.0-3.6.2** : la Phase 4 passait par le wrapper `bid-manager` qui ne chargeait
+  ni les briefs ni la cible de volume → mémoires de 4 000-5 000 mots. Délégation DIRECTE aux agents
+  a01-a08 + `knowledge_base` étendue 5→12 briefs + cible 6 000-8 000 mots (plancher 5 500).
+- 🆕 **Phase 4bis** : production automatique des annexes citées (`ao-annexes-factory` + `ao-visuels-factory`),
+  INDEX-REMISE, contrôle « chaque annexe citée existe physiquement ».
+- 🆕 **Phase 7bis** : boucle auto-correction QA (max 3 itérations, anti-régression, critères d'escalade) ;
+  a08 passe en sortie machine-readable avec décision GO_DEPOT / LOOP_A07 / ESCALADE_HUMAIN.
+- 🆕 **`BRIEF-teltonika-wiki.md`** : codecs + 60 AVL IDs critiques.
+- 🧹 Retrait du DOCX 22 Mo annexe 08 (réintroduit en v3.6.5 — il était toujours référencé).
+
+## v3.6.2 — 30 mai 2026
+
+- Comble 4 manques secondaires détectés au test SPL EBR DAF-2025-15 — score 9,1/10 (dépasse
+  l'original humain 9,0).
+
+## v3.6.1 — 30 mai 2026
+
+- Combles SSI / API / clôture : `BRIEF-api-catalog.md` (18 REST + 4 JMS), `BRIEF-ssi-matrice-33items.md`,
+  `BRIEF-cloture-memoire.md` + a07-writer mis à jour.
+
+## v3.6.0 — 29-30 mai 2026
+
+- Base v3.5 riche + correctifs ciblés : 0 chemin mort, palette charte officielle, hook déterministe
+  `guard-forbidden`, boîtiers EOL → FMC650/FMC920, fix a00b (tools manquants — agent inopérant),
+  règle de préséance agent ↔ skill wrapper, a07-writer enrichi des patterns gagnants SPL EBR + Garges.
+
 ## v3.5.0 — 28 mai 2026 — Capitalisation Garges-lès-Gonesse + Résidences Yvelines
 
 ### 🎯 Origine
