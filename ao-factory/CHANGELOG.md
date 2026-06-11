@@ -1,5 +1,18 @@
 # CHANGELOG — AO Factory Plugin
 
+## v3.6.7 — 11 juin 2026 — a05 : sources Teltonika alignées + consultation live du wiki
+
+- ✅ **a05-telematics-architect** déclarait une seule source obligatoire (`boitiers-teltonika-detail.md`)
+  alors que la table des rôles du SKILL exige 3 sources pour la Phase 3 matériel — incohérence levée :
+  les 3 sont désormais obligatoires (detail + `BRIEF-teltonika-wiki.md` 60 AVL IDs +
+  `BRIEF-comparatif-natif-vs-boitier.md`), avec la règle de résolution des chemins (racine plugin).
+- 🆕 **WebFetch encadré pour a05** : consultation LIVE de `wiki.teltonika-gps.com` autorisée en
+  complément/vérification uniquement (spec absente des briefs ou doute avant engagement contractuel) ;
+  domaine restreint, citation URL + date obligatoire, jamais de dérogation aux règles EOL/CAN-BUS,
+  divergence brief↔wiki → `[A_CONFIRMER]`, web indisponible → fallback briefs + `[A_CONFIRMER]`,
+  reformulation FR (pas de collage marketing). Les briefs statiques restent la source primaire.
+- Outil Glob ajouté à a05 (fallback de résolution des chemins).
+
 ## v3.6.6 — 11 juin 2026 — Phase 4bis NON différable
 
 Seconde faille relevée sur l'AO Charleville-Mézières 26F17 : la Phase 4bis (annexes + visuels)
