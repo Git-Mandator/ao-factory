@@ -1,6 +1,6 @@
 ---
 name: ao-response-factory
-version: "3.6.9"
+version: "3.6.10"
 domain: AO_FACTORY
 language: fr
 role: orchestrateur
@@ -76,9 +76,12 @@ Ce skill industrialise la chaîne complète : **DCE → Analyse → GO/NO GO →
 
 1. **Racine plugin** = le dossier qui contient `.claude-plugin/plugin.json` (ce SKILL.md est dans
    `<racine>/skills/ao-response-factory/`). L'orchestrateur transmet ce chemin absolu à chaque agent délégué.
-2. **Si un fichier `knowledge/` est introuvable en relatif** → le localiser par Glob :
-   `~/.claude/plugins/marketplaces/*/ao-factory/knowledge/briefs/BRIEF-*.md` (plugin installé)
-   puis `~/Documents/ao-factory-final/ao-factory/knowledge/**` (source de développement).
+2. **Si un fichier `knowledge/` est introuvable en relatif** → le localiser par Glob, en essayant les
+   DEUX emplacements d'installation (marketplace ET cache de plugin) :
+   - `~/.claude/plugins/marketplaces/*/ao-factory/knowledge/**`
+   - `~/.claude/plugins/cache/*/ao-factory/*/knowledge/**`  ← cache versionné (ex. `…/ao-factory/3.6.9/knowledge/`)
+   - en dernier recours, source de dev : `~/Documents/ao-factory-final/ao-factory/knowledge/**`
+   Prendre le premier qui existe et en déduire la racine `knowledge/` pour tous les autres fichiers.
 3. **⛔ INTERDIT de rédiger sans les briefs.** Si un brief obligatoire reste introuvable après l'étape 2 :
    **STOP**, signaler `[BRIEF_INTROUVABLE : <chemin>]` à Said KHAYAT. Ne JAMAIS improviser le contenu
    d'un brief de mémoire — c'est la cause racine des mémoires de 4 000 mots rejetés.

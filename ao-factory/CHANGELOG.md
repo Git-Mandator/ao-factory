@@ -1,5 +1,18 @@
 # CHANGELOG — AO Factory Plugin
 
+## v3.6.10 — 11 juin 2026 — Bugs révélés par le run à zéro Charleville
+
+Deux défauts apparus lors du retraitement complet de l'AO Charleville (run à zéro v3.6.9) :
+
+- 🐛 **`gen_all_annexes.js` cassait sur les chemins contenant des espaces** : l'orchestrateur lançait
+  les sous-scripts via `execSync(\`node ${__dirname}/${s}\`)` sans quoter → « Cannot find module
+  '…/Nouvel' » dès qu'un dossier parent contenait un espace (« Nouvel AO », « remise 1 »). Chemin
+  désormais quoté. Toutes les annexes se génèrent via l'orchestrateur.
+- 🔧 **Résolution des chemins `knowledge/` peu fiable selon l'agent** : a00b-bid-strategist échouait
+  au Glob et improvisait, là où a02/a05/a07 trouvaient. Renforcé : la règle donne maintenant les DEUX
+  emplacements (`marketplaces/*/ao-factory/knowledge/**` ET `cache/*/ao-factory/*/knowledge/**`) et
+  est ajoutée explicitement à a00b, a02 et a04 (a05/a07 l'avaient déjà). Brief introuvable → STOP.
+
 ## v3.6.9 — 11 juin 2026 — Anti-dérive du versioning affiché
 
 La description du plugin affichait « v3.6.5 » alors que la version installée était la 3.6.8 — le

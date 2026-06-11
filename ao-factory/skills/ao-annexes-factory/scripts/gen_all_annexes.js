@@ -9,7 +9,8 @@ const scripts = [
 for (const s of scripts) {
   console.log(`\n=== ${s} ===`);
   try {
-    execSync(`node ${__dirname}/${s}`, { stdio: 'inherit' });
+    // chemin quoté : __dirname peut contenir des espaces (ex. "Nouvel AO", "remise 1")
+    execSync(`node "${__dirname}/${s}"`, { stdio: 'inherit' });
   } catch (e) {
     console.error(`Erreur lors de ${s}: ${e.message}`);
   }

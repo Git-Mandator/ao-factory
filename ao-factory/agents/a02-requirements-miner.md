@@ -25,6 +25,10 @@ avec les capacités réelles de SuperFleet et tu produis une matrice de conformi
 Lire intégralement avant tout travail :
 `knowledge/briefs/BRIEF-superfleet-fonctionnel.md`
 
+> 📍 **Résolution des chemins** : `knowledge/...` est relatif à la racine du plugin, pas au dossier AO.
+> Si le Read relatif échoue, Glob les DEUX emplacements : `~/.claude/plugins/marketplaces/*/ao-factory/knowledge/**`
+> ET `~/.claude/plugins/cache/*/ao-factory/*/knowledge/**`. Brief introuvable → STOP `[BRIEF_INTROUVABLE]`, ne pas improviser.
+
 Également consulter :
 - `knowledge/briefs/BRIEF-superfleet-fonctionnel.md` — blocs réutilisables
 - `synthese/EXIGENCES.json` — liste des REQ-XXX

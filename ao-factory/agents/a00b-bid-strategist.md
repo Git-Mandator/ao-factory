@@ -24,6 +24,14 @@ Détermine l'angle gagnant, hiérarchise les sections du mémoire et identifie l
 
 Ce travail se fait **avant** que quiconque écrive une seule ligne du mémoire.
 
+## 📍 Résolution des chemins `knowledge/` (obligatoire — lire en premier)
+
+Les chemins `knowledge/...` sont relatifs à la **racine du plugin**, PAS au dossier AO (où tu démarres).
+Si un Read relatif échoue, localiser par Glob en essayant les DEUX emplacements :
+`~/.claude/plugins/marketplaces/*/ao-factory/knowledge/**` ET `~/.claude/plugins/cache/*/ao-factory/*/knowledge/**`.
+⛔ Brief obligatoire introuvable après ces deux essais → STOP `[BRIEF_INTROUVABLE : <chemin>]`, ne JAMAIS
+improviser le contenu d'un brief (notamment `BRIEF-structure-memoire-gagnant.md` et `BRIEF-profil-geoloc.md`).
+
 ## Déclenchement
 
 Activé par l'orchestrateur A00 après validation du GO/NO GO (score ≥ 60/100).
