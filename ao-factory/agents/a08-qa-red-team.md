@@ -108,6 +108,34 @@ grep -c "^|" MEMOIRE_TECHNIQUE.md              # proxy nb de lignes de tableaux
 > ⛔ **Jamais de GO_DEPOT sous 5 500 mots** — c'est le garde-fou central du SKILL (cf. §Cible de volume).
 > Reporter le décompte exact dans les métriques d'itération.
 
+### 6ter. Mise en page du .docx final (corrigeable par boucle — contrôles XML obligatoires)
+
+```bash
+unzip -p remise/MEMOIRE_TECHNIQUE_*.docx word/document.xml > /tmp/mt.xml
+grep -c "TOC" /tmp/mt.xml                                    # champ sommaire automatique
+# sauts de page = w:br type page (explicites) + pageBreakBefore (propriété de titre) — additionner :
+grep -o 'w:br w:type="page"' /tmp/mt.xml | wc -l
+grep -o "pageBreakBefore"    /tmp/mt.xml | wc -l
+unzip -p remise/MEMOIRE_TECHNIQUE_*.docx word/settings.xml | grep -c "updateFields"  # MAJ sommaire à l'ouverture
+unzip -p remise/MEMOIRE_TECHNIQUE_*.docx word/footer1.xml  | grep -c "PAGE"          # pagination
+```
+
+| Contrôle | Attendu | Verdict si non atteint |
+|---|---|---|
+| **Page de garde dédiée** (1re page = titre marché + réf + acheteur, puis saut de page) | présente | 🔴 BLOQUANT |
+| **Champ TOC** (sommaire automatique avec n° de page) | ≥ 1 | 🔴 BLOQUANT « sommaire absent » |
+| **`updateFields` dans settings.xml** (sinon sommaire vide à l'ouverture) | ≥ 1 | 🔴 BLOQUANT |
+| **Sauts de page** (somme `w:br type="page"` + `pageBreakBefore`) | ≥ nb de sections de niveau 1 − 1 | 🔴 BLOQUANT « document au kilomètre » |
+| Pagination pied de page (`PAGE`) | ≥ 1 | 🟡 Avertissement |
+
+> Étalon : `templates-docx/memoire_template.js` testé le 11/06/2026 → TOC=1, updateFields=1,
+> w:br page=2 + pageBreakBefore=6, footer PAGE=1. Le docx Charleville livré le 10/06 : TOC=0,
+> sauts de page=0 — exactement ce que ce contrôle aurait bloqué.
+
+> Correction boucle : regénérer le .docx depuis `templates-docx/memoire_template.js` (structure
+> garde/sommaire/sauts/pagination intégrée) — cf. SKILL §Mise en page obligatoire. Ce n'est PAS
+> une décision humaine.
+
 ### 7. Flags A_CONFIRMER résiduels (escalade immédiate)
 
 ```bash

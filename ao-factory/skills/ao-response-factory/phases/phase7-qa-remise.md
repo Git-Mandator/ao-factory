@@ -24,6 +24,10 @@
 - [ ] Tous les critères du RC ont une section dédiée dans le mémoire (structure miroir grille RC)
 - [ ] Pondération des critères respectée (sections les plus longues = critères les plus pondérés)
 - [ ] **Volume du mémoire ≥ 5 500 mots** (cible 6 000-8 000) — compté avec `wc -w`, pas estimé (cf. a08 §6bis)
+- [ ] **Page de garde dédiée** (titre marché + réf + acheteur + date) suivie d'un saut de page
+- [ ] **Sommaire automatique avec numéros de page** (TableOfContents + `updateFields: true`)
+- [ ] **Saut de page avant chaque section de niveau 1**
+- [ ] **Pagination en pied de page** (Page X) — contrôles XML : cf. a08 §6ter
 - [ ] `remise/Annexes/` présent et non vide + `INDEX-REMISE.md` (Phase 4bis exécutée — NON différable, même en attente d'arbitrages)
 - [ ] Toutes les annexes citées dans le mémoire sont incluses dans le dossier
 - [ ] Format de fichier conforme aux exigences RC (PDF, Word, taille max, etc.)
@@ -109,11 +113,16 @@ REPONSE/
 #    Tableaux   : TOUJOURS columnWidths + width par cellule (WidthType.DXA uniquement)
 #    ShadingType: TOUJOURS ShadingType.CLEAR (jamais SOLID)
 
-# 2. Générer et valider
-node gen_memoire.js
-node gen_dqe_admin.js
+# 2. Générer et valider — BASE OBLIGATOIRE : les templates du plugin
+#    (page de garde + sommaire auto avec n° de page + sauts de page + pagination déjà intégrés ;
+#     copier le template, remplacer le contenu exemple SIRTOM, conserver la structure)
+#    ⚠️ si `docx` est installé en global : préfixer par NODE_PATH=$(npm root -g)
+NODE_PATH=$(npm root -g) node memoire_template.js  "remise/MEMOIRE_TECHNIQUE_[ACHETEUR].docx"
+NODE_PATH=$(npm root -g) node matrice_template.js  "remise/MATRICE_CONFORMITE_[ACHETEUR].docx"
+NODE_PATH=$(npm root -g) node admin_template.js    "remise/ADMIN_CHECKLIST_[ACHETEUR].docx"
+NODE_PATH=$(npm root -g) node qa_template.js       "QA_CHECKLIST_interne.docx"   # interne — ne pas déposer
 # Validation : via le script validate.py du skill docx si présent dans l'environnement ;
-# sinon, ouvrir chaque .docx généré (unzip -l + relecture) avant copie dans remise/
+# sinon, contrôles XML mise en page (cf. a08 §6ter) + relecture avant copie dans remise/
 
 # 3. Copier dans remise/ (nommage selon RC — vérifier si un préfixe candidat est exigé, ex. GEOLOC_)
 cp MEMOIRE_TECHNIQUE.docx  "remise/MEMOIRE_TECHNIQUE_[ACHETEUR].docx"

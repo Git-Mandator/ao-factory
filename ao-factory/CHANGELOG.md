@@ -1,5 +1,25 @@
 # CHANGELOG — AO Factory Plugin
 
+## v3.6.8 — 11 juin 2026 — Mise en page docx obligatoire (page de garde, sommaire, sauts de page)
+
+Faille relevée sur le mémoire Charleville livré : pas de page de garde dédiée, 0 champ sommaire,
+0 saut de page (document au kilomètre). Cause : `templates-docx/*.js` inutilisables (chemins de
+sortie codés en dur vers une session Cowork morte de février) → les runs généraient des scripts
+ad hoc sans mise en page, et la QA ne contrôlait rien.
+
+- 🔧 **Templates réparés** : chemin de sortie en argument CLI (`node memoire_template.js "remise/…"`),
+  `features: { updateFields: true }` ajouté au mémoire (sans quoi le sommaire reste vide à
+  l'ouverture dans Word). Testé : TOC + updateFields + sauts de page + pagination OK.
+- ✅ **SKILL.md §Règle .docx** : mise en page OBLIGATOIRE du mémoire — page de garde dédiée + saut de
+  page, sommaire automatique avec numéros de page, saut de page avant chaque section de niveau 1,
+  pagination pied de page. Base obligatoire = templates du plugin (copier, remplacer le contenu
+  exemple SIRTOM, conserver la structure) ; scripts ad hoc sans ces éléments interdits.
+- ✅ **a08-qa-red-team §6ter** : contrôles XML chiffrés (champ TOC, updateFields dans settings.xml,
+  somme `w:br type=page` + `pageBreakBefore` ≥ sections H1 − 1, footer PAGE) — 3 BLOQUANTS
+  corrigeables boucle + étalon de référence.
+- ✅ **phase7-qa-remise.md** : procédure de production basée templates (+ note NODE_PATH pour docx
+  global) + 4 items de checklist mise en page.
+
 ## v3.6.7 — 11 juin 2026 — a05 : sources Teltonika alignées + consultation live du wiki
 
 - ✅ **a05-telematics-architect** déclarait une seule source obligatoire (`boitiers-teltonika-detail.md`)

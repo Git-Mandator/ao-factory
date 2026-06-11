@@ -1,6 +1,6 @@
 ---
 name: ao-response-factory
-version: "3.6.7"
+version: "3.6.8"
 domain: AO_FACTORY
 language: fr
 role: orchestrateur
@@ -58,7 +58,7 @@ target_volume_memoire:
   pages_docx_estimees: "25-35"
 ---
 
-# Skill : AO Response Factory — Orchestrateur Maître v3.6.7
+# Skill : AO Response Factory — Orchestrateur Maître v3.6.8
 
 Ce skill industrialise la chaîne complète : **DCE → Analyse → GO/NO GO → Matrice → Mémoire → Annexes → DQE → Admin → QA → Remise.**
 
@@ -243,6 +243,22 @@ Remise — Production .docx         → skill docx             → Dossier remis
 - `ADMIN_CHECKLIST_[ACHETEUR].docx` — pièces de candidature
 - `Annexes/Annexe_[A→K]_[nom]_[ACHETEUR].docx` — produites en Phase 4bis
 
+**Mise en page OBLIGATOIRE du mémoire .docx (contrôlée en QA — a08 §6ter) :**
+1. **Page de garde dédiée** : titre du marché + référence + acheteur + cartouche candidat + date +
+   validité de l'offre, charte Geoloc — suivie d'un **saut de page**.
+2. **Sommaire automatique avec numéros de page** : `TableOfContents` (hyperlink, niveaux 1-3) et
+   Document construit avec `features: { updateFields: true }` (sans cette option le sommaire reste
+   vide à l'ouverture dans Word) — suivi d'un **saut de page**.
+3. **Saut de page avant chaque section de niveau 1** (`pageBreakBefore: true`).
+4. **Pagination en pied de page** (`PageNumber.CURRENT`) + en-tête charte sur tout le corps.
+
+> ⛔ **Base obligatoire : `templates-docx/memoire_template.js`** (+ `matrice/admin/qa_template.js`) —
+> copier le template, remplacer le CONTENU (exemple SIRTOM) par celui du marché, conserver la
+> STRUCTURE (garde/sommaire/sauts/pagination). Chemin de sortie en argument :
+> `node memoire_template.js "remise/MEMOIRE_TECHNIQUE_[ACHETEUR].docx"`.
+> **INTERDIT d'écrire un script ad hoc sans ces 4 éléments** — cause des docx Charleville livrés
+> sans page de garde, sans sommaire et sans sauts de page.
+
 **Charte graphique :** Toujours appliquer la charte Geoloc officielle (geoloc-brand v1.0) :
 - Police : **Calibri** — Couleur principale : **`#1565C0`** — Fond tableaux pairs : **`#F1F5F9`**
 - Lire le skill `docx` (anthropic-skills:docx) AVANT tout script JS — s'il est indisponible dans
@@ -292,7 +308,7 @@ Lire `10_GEOLOC_SYSTEMS_CORE/skills/telematics-expert/SKILL.md` pour les argumen
 ## 🎯 FORMAT DE DÉMARRAGE
 
 ```
-🏭 AO RESPONSE FACTORY v3.6.7 — DÉMARRAGE
+🏭 AO RESPONSE FACTORY v3.6.8 — DÉMARRAGE
 
 📋 VÉRIFICATION DCE — [RÉFÉRENCE MARCHÉ si connue]
 

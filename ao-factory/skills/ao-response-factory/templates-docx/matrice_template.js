@@ -5,7 +5,8 @@ const {
 } = require('docx');
 const fs = require('fs');
 
-const OUT = '/sessions/modest-laughing-knuth/mnt/Appels-Offres/En-cours/2026-02-24_SIRTOM/REPONSE/remise/MATRICE_CONFORMITE_SIRTOM.docx';
+// Chemin de sortie en argument : node matrice_template.js "remise/MATRICE_CONFORMITE_[ACHETEUR].docx"
+const OUT = process.argv[2] || 'MATRICE_CONFORMITE.docx';
 
 // Colors
 const C = {

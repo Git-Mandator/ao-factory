@@ -161,6 +161,9 @@ function engagementsTable(rows) {
 
 // ─── DOCUMENT ────────────────────────────────────────────────────────────────
 const doc = new Document({
+  // Met à jour les champs (sommaire/numéros de page) à l'ouverture dans Word —
+  // sans cette option, la TableOfContents reste vide ou figée.
+  features: { updateFields: true },
   styles: {
     default: { document: { run: { font: "Arial", size: 20 } } },
     paragraphStyles: [
@@ -816,5 +819,6 @@ const doc = new Document({
   ]
 });
 
-const OUT = "/sessions/modest-laughing-knuth/mnt/Appels-Offres/En-cours/2026-02-24_SIRTOM/REPONSE/remise/MEMOIRE_TECHNIQUE_SIRTOM.docx";
+// Chemin de sortie en argument : node memoire_template.js "remise/MEMOIRE_TECHNIQUE_[ACHETEUR].docx"
+const OUT = process.argv[2] || "MEMOIRE_TECHNIQUE.docx";
 Packer.toBuffer(doc).then(buf => { fs.writeFileSync(OUT, buf); console.log("✅ " + OUT); });

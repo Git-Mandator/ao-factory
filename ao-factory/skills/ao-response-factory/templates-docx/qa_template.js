@@ -5,7 +5,8 @@ const {
 } = require('docx');
 const fs = require('fs');
 
-const OUT = '/sessions/modest-laughing-knuth/mnt/Appels-Offres/En-cours/2026-02-24_SIRTOM/REPONSE/remise/QA_CHECKLIST_SIRTOM.docx';
+// Chemin de sortie en argument : node qa_template.js "remise/QA_CHECKLIST_[ACHETEUR].docx"
+const OUT = process.argv[2] || 'QA_CHECKLIST.docx';
 
 const C = {
   BLEU_FONCE: "1565C0", BLEU_MED: "4285F4", BLEU_LIGHT: "F1F5F9", BLEU_ALT: "E2E8F0",

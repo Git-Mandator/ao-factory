@@ -1,6 +1,6 @@
 # AO Factory Plugin — Geoloc Systems
 
-**Version :** 3.6.7 — voir `CHANGELOG.md` pour l'historique complet
+**Version :** 3.6.8 — voir `CHANGELOG.md` pour l'historique complet
 **Auteur :** Said KHAYAT — Geoloc Systems
 **Domaine :** Réponses aux appels d'offres publics (télématique de flotte)
 
